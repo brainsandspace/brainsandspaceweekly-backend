@@ -1,0 +1,4883 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)https://images-na.ssl-images-amazon.com/images/G/01/dacx/sf/sf-1.41._V522922159_.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+        <!-- DACX SafeFrame v1.41 -- 2016-12-20T10:51:42 -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta http-equiv="Cache-Control" content="public">
+        <meta name="ROBOTS" content="NOINDEX">
+        <meta name="ROBOTS" content="NOFOLLOW">
+        <meta name="ROBOTS" content="NOARCHIVE">
+        <meta name="ROBOTS" content="NOSNIPPET">
+        <meta name="ROBOTS" content="NOODP ">
+        <title></title>
+        <style type="text/css">
+            body { margin:0px;padding:0px;background-color:transparent; }
+        </style>
+    </head>
+    <body marginwidth="0" marginheight="0">
+        <div id="div-gpt-ad">
+            <script>
+!function a(b,c,d){function e(g,h){if(!c[g]){if(!b[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};b[g][0].call(k.exports,function(a){var c=b[g][1][a];return e(c?c:a)},k,k.exports,a,b,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){var d=null,e=null,f={ext:{}};f.ext.inViewPercentage=function(){return d=d||0,Math.round(100*d)},f.ext.geom=function(){return e=e||{}},b.exports.produce=function(){return f},b.exports.update=function(a){d=a&&a.geom&&a.geom.self.iv,null===d&&delete f.ext.inViewPercentage,e=a&&a.geom,null===e&&delete f.ext.geom}},{}],2:[function(a,b,c){function d(a,b){"undefined"!=typeof console&&console.error&&console.error(a,b)}function e(a){return/^https/.test(a)}function f(a){return a?a.replace(/^http:/,"https:"):a}function g(a){return/\.amazon\.(com?\.)?[a-z]{2,4}(:.*)?$/i.test(a)}function h(a,b,c){var e=this,f={};this.client=a||{},this.options=b||{},this.msgListeners=c||{},this.sendMessage=function(a,b){if(e.options!=={}){var c={command:a,arid:e.options.arid,data:b||{}};try{parent.postMessage(JSON.stringify(c),e.options.hostDomain)}catch(f){d("Post Message unsupported ",f)}}},this.receiveMessage=function(a){if(e.options!=={}&&e.client!=={}){var b;try{if(b=JSON.parse(a.data),a.origin!==e.options.hostDomain||"object"!=typeof b.data)throw"Invalid Message"}catch(c){var d="Received Error: "+a.data;return void e.client.logError(d,c,i.WARN)}try{e.options.debug&&"undefined"!=typeof console&&console.log("SF Message received ",a);for(var f=b.command?b.command.split("."):[],g=e.client[f[0]],h=1;h<f.length&&g;h++)g=g[f[h]];if("customMessage"===b.command){var j=b.data.key,k=b.data.data;if("function"==typeof e.msgListeners[j])try{e.msgListeners[j](k)}catch(c){e.client.logError("Custom Message Listener Error",c,i.WARN)}}else g&&g(b.data)}catch(c){return void e.client.logError("Error with "+JSON.parse(a.data).command,c,i.WARN)}}};var g=function(a,b,c,d,e){var f=document.getElementById(b);if(null===f&&"string"==typeof a&&a.length>0){var g=document.createElement("img");g.id=b,g.src=a,g.style.display="none",g.onload=d,g.onerror=e,c.appendChild(g)}};this.fireAdPixels=function(){var a=e.options,b=e.client;if(a!=={}&&b!=={})try{if("object"!=typeof a.adPixels)return;var c,d=a.adPixels;"string"==typeof a.aaxImpPixelUrl&&a.aaxImpPixelUrl.length>0&&g(a.aaxImpPixelUrl,"ape_impression",document.getElementsByTagName("body")[0],function(){e.sendMessage("updateAdImpressionsFired",{isImpFired:!0})},function(){e.sendMessage("updateAdImpressionsFired",{isImpFired:!1})});for(var f=0,h=d.length;h>f;f++)c=new Image,c.src=d[f]}catch(j){e.client.logError("Error firing pixels: "+JSON.stringify(d),j,i.WARN)}},this.fireViewablePixels=function(a,b,c){var d=e.options,h=e.client;if(d!=={}&&h!=={}&&d.aaxInstrPixelUrl&&c){for(var i=function(a){b.v=a,b.ptv="undefined"!=typeof e.options.aPageStart?(Date.now()-e.options.aPageStart)/1e3:0,b.ttv="undefined"!=typeof e.options.adStartTime?(Date.now()-e.options.adStartTime)/1e3:0,g(d.aaxInstrPixelUrl+"v/"+JSON.stringify(b),a&&a.def?"ape_"+a.def+"_viewability":"",document.getElementsByTagName("body")[0],function(){e.sendMessage("updateAdViewabilityFired",{isViewed:!0})},function(){e.sendMessage("updateAdViewabilityFired",{isViewed:!1})})},j=function(a,b){return a&&(100*a>=b&&0!==b||100*a>b&&0===b)},k=function(b){var c=b.p,d=b.t,e=b.def;!f[e].viewed&&j(a,c)?f[e].timeout||(f[e].timeout=setTimeout(function(){f[e].viewed=!0,i(b)},1e3*d)):f[e].timeout&&(clearTimeout(f[e].timeout),f[e].timeout=null)},l=0;l<c.length;l++){var m=c[l].def;m&&(f[m]=f[m]||{},f[m].viewed="undefined"==typeof f[m].viewed?!1:f[m].viewed,f[m].timeout="undefined"==typeof f[m].timeout?null:f[m].timeout)}for(l=0;l<c.length;l++)k(c[l])}}}var i={ERROR:"ERROR",WARN:"WARN",FATAL:"FATAL"};b.exports.messenger=new h,b.exports.localErrorLog=d,b.exports.isSecure=e,b.exports.replaceWithSecure=f,b.exports.isOnAmazon=g},{}],3:[function(a,b,c){function d(a){for(var b="",c=0,d=0,e=0,f=0;c<a.length;)d=a.charCodeAt(c),128>d?(b+=String.fromCharCode(d),c++):d>191&&224>d?(e=a.charCodeAt(c+1),b+=String.fromCharCode((31&d)<<6|63&e),c+=2):(e=a.charCodeAt(c+1),f=a.charCodeAt(c+2),b+=String.fromCharCode((15&d)<<12|(63&e)<<6|63&f),c+=3);return b}function e(a){var b,c,e,f,g,h,i,j="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",k="",l=0;for(a=a.replace(/[^A-Za-z0-9\+\/\=]/g,"");l<a.length;)f=j.indexOf(a.charAt(l++)),g=j.indexOf(a.charAt(l++)),h=j.indexOf(a.charAt(l++)),i=j.indexOf(a.charAt(l++)),b=f<<2|g>>4,c=(15&g)<<4|h>>2,e=(3&h)<<6|i,k+=String.fromCharCode(b),64!=h&&(k+=String.fromCharCode(c)),64!=i&&(k+=String.fromCharCode(e));return k=d(k)}/*
+    @license
+    Underscore.js 1.8.3
+    http://underscorejs.org
+    (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+    Underscore may be freely distributed under the MIT license.
+*/
+b.exports.debounce=function(a,b,c){var d,e,g,h,i,j=function(){var k=f()-h;b>k&&k>=0?d=setTimeout(j,b-k):(d=null,c||(i=a.apply(g,e),d||(g=e=null)))};return function(){g=this,e=arguments,h=f();var k=c&&!d;return d||(d=setTimeout(j,b)),k&&(i=a.apply(g,e),g=e=null),i}},b.exports.throttle=function(a,b,c){var d,e,g,h=null,i=0;c||(c={});var j=function(){i=c.leading===!1?0:f(),h=null,g=a.apply(d,e),h||(d=e=null)};return function(){var k=f();i||c.leading!==!1||(i=k);var l=b-(k-i);return d=this,e=arguments,0>=l||l>b?(h&&(clearTimeout(h),h=null),i=k,g=a.apply(d,e),h||(d=e=null)):h||c.trailing===!1||(h=setTimeout(j,l)),g}};var f=function(){return Date.now?Date.now():(new Date).getTime()};b.exports.addListener=function(a,b,c){a.addEventListener?a.addEventListener(b,c,!1):window.attachEvent&&a.attachEvent("on"+b,c)},b.exports.addWindowListener=function(a,c){b.exports.addListener(window,a,c)},b.exports.removeWindowListener=function(a,b){window.removeEventListener?window.removeEventListener(a,b,!1):window.detachEvent&&window.detachEvent("on"+a,b)},b.exports.getQueryString=function(a,b){var c=[];for(var d in a)c.push(d+"="+a[d]);var e=c.join("&");return b?encodeURIComponent(e):e},b.exports.extend=function(a){for(var b,c,d=1,e=arguments.length;e>d;d++){b=arguments[d];for(c in b)Object.prototype.hasOwnProperty.call(b,c)&&null!==b[c]&&(a[c]=b[c])}return a},b.exports.decodeBase64=e,b.exports.sendAjaxRequest=function(a,b,c,d,e,f){try{var g=null;window.XMLHttpRequest?g=new XMLHttpRequest:window.ActiveXObject&&(g=new ActiveXObject("Microsoft.XMLHTTP")),g?(g.onreadystatechange=function(){d(g)},g.open(a,b,c),g.send()):"function"==typeof failFallback&&e()}catch(h){"function"==typeof errorHandler&&f()}},b.exports.createScript=function(a,b,c,d,e){if(!document.getElementById(c)){var f=document.createElement("script");return f.async=!0,f.setAttribute("crossorigin","anonymous"),f.src=a,f.type=b,f.id=c,f.onerror=d,f.onload=e,f}}},{}],4:[function(a,b,c){window.SFClient=function(b,c){function d(){return b.aanResponse||(c.aanResponse?c.aanResponse[q.options.slotName+"adData"]:{})}function e(a){A(a),C=!0,setTimeout(i,0)}function f(a,b,d){var e=d?d:"",f='<a target="_blank" href="'+b+'"><img src="'+a+'" '+e+"></a>";A(f),c.close(),i()}function g(a,b){var c=b?b:"";A(["<scr","ipt type='text/javascript', src='",a,"', onerror='",c,"'></scr","ipt>"].join(""))}function h(){if(!C){var a=q.options.fallback;if(a&&a.length>0){var b=a.shift();b=s(q.options.hostDomain)?t(b):b,g(b)}else q.options.fallbackStaticAdImgUrl&&q.options.fallbackStaticAdClickUrl?f(q.options.fallbackStaticAdImgUrl,q.options.fallbackStaticAdClickUrl,q.options.fallbackStaticAdExtraStyle):q.client.collapseSlot()}}function i(){D||(D=!0,q.sendMessage("Done Loading"),q.client.sendMetrics("ld"),q.client.sendAdDetails(),setTimeout(v,q.options.adPixelDelay||0),b.addEventListener("message",q.receiveMessage,!1),q.sendMessage("enableViewabilityTracker"))}function j(){var a=c.getElementsByTagName("img")[0];a&&-1===a.src.indexOf("//:0")&&!a.onerror&&(a.onerror=function(){q.sendMessage("updateAdImgLoaded",{isLoaded:!1})},a.onload=function(){q.sendMessage("updateAdImgLoaded",{isLoaded:!0})})}function k(a){return a+="",a=a.toLowerCase(),"message"===a||"onmessage"==a}function l(a){q.client.sendMetrics("ld","punt"),a&&q.client.sendMetrics("ld","punt:"+a),q.client.collapseSlot()}function m(a,c){try{var d=a.sizes,e=a.network,f=a.correlator;if("undefined"==typeof d||d.length<1||!e||!f)return void l("gpt:missingparams");b.googletag=b.googletag||{},b.googletag.cmd=b.googletag.cmd||[],g(a.libraryUrl);var h=a.firstLevelAdUnit,i=a.secondLevelAdUnit;q.options.dfpSiteZone=i?h+"."+i:h;for(var j="/".concat([e,h,i].filter(function(a){return a}).join("/")),k="undefined"!=typeof a.targeting?a.targeting:{},m=a.pageUrl,n=[],o=0;o<d.length;o++){var p=[];p.push(parseInt(d[o].split("x")[0],10)),p.push(parseInt(d[o].split("x")[1],10)),n.push(p)}b.googletag.cmd.push(function(){m&&b.googletag.pubads().set("page_url",m),b.googletag.pubads().setCorrelator(a.correlator);var d=b.googletag.defineSlot(j,n,c);d.addService(b.googletag.pubads());for(var e in k)k.hasOwnProperty(e)&&"undefined"!=typeof k[e]&&d.setTargeting(e,k[e]);b.googletag.pubads().addEventListener("slotRenderEnded",function(a){a.isEmpty?l("gpt:noad"):q.client.sendMetrics("ld","gpt:renderad")}),b.googletag.pubads().enableSyncRendering(),b.googletag.enableServices(),q.client.sendMetrics("ld","request"),b.googletag.display(c)})}catch(s){r("Error building DFP GPT request ",s),q.client.logError("Error building DFP GPT request",s,x.ERROR)}}var n=a("./components/util"),o=a("./components/sfAPI"),p=a("./components/sfMsgHandler"),q=p.messenger,r=p.localErrorLog,s=p.isSecure,t=p.replaceWithSecure,u=p.isOnAmazon,v=q.fireAdPixels,w=n.decodeBase64,x={ERROR:"ERROR",WARN:"WARN",FATAL:"FATAL"},y=b.$sf=o.produce();q.client={changeSize:function(a,b){q.sendMessage("changeSize",{width:a,height:b})},collapseSlot:function(){q.sendMessage("collapseSlot")},embedScript:function(a,b){q.sendMessage("embedScript",{src:a,charset:b})},adFeedback:function(){q.sendMessage("adFeedback")},logError:function(a,b,c){q.sendMessage("logError",{message:a,error:b,level:c})},sendMetrics:function(a,b){q.sendMessage("sendMetrics",{metric:a,metricMsg:b})},customMessage:function(a,b){q.sendMessage("customMessage",{key:a,body:b})},isSupported:function(){return"function"==typeof parent.postMessage},getARID:function(){return q.options.arid},isOnAmazon:function(){return u(q.options.hostDomain)},getPageId:function(){var a=q.client.getAanParams(),b=a.match(/\bpid=([^;]+)\b/);return b?b[1]:null},getDebugInfo:function(a){var b=d(),e={arid:q.options.arid,slot:q.options.slot,slotName:q.options.slotName,shazamId:b.shazamId,creativeId:b.creativeId||b.cid,adId:b.adId||b.aid,src:q.options.src,iframeHtml:c.body.innerHTML||""};q.client.customMessage(a.key,e)},getAanParams:function(){return q.options.aanParams||""},getDfpSiteZone:function(){return q.options.dfpSiteZone},sendAdDetails:function(){var a=d(),c=b.extraInfo||{};q.sendMessage("adDetails",{aanResponse:a,extraInfo:c})},registerCustomMessageListener:function(a,b){q.msgListeners[a]=b},getQueryParam:function(a){var b="";return"undefined"!=typeof q.options.queryParams&&"string"==typeof a&&(0!==a.indexOf("sf-")&&(a="sf-"+a),b=q.options.queryParams[a]||""),b},notifyWhenViewable:function(){q.sendMessage("notifyWhenViewable")},updateViewability:function(a){if(o.update(a),q.options.aaxInstrPixelUrl){var b=y.ext.geom();q.fireViewablePixels(b&&b.self&&b.self.iv,a.payload,a.viewabilityStandards)}}},b.onerror=function(a,b,c,d,e){var f,g;try{f=e||new Error(a,b,c),g=f.message+": "+f.stack}catch(i){f=null,g=a}return q.client.isSupported()?q.client.logError(g,f,x.WARN):r("Error in Safeframe window ",g),h(),!0};var z=c.write,A="function"==typeof z.apply?function(){z.apply(c,arguments)}:function(){Function.apply.call(z,c,arguments)},B=n.debounce(h,25,!1);c.write=function(a){G.test(a)&&(F=!0,b.productAdsUrl=q.options.productAdsUrl,b.parentLocation=q.options.parentLocation),a||D||C?I&&H.test(a)&&"true"==a.match(H)[1]?(q.client.notifyWhenViewable(),q.client.registerCustomMessageListener("readyToRender",function(b){b==q.options.arid&&e(a)})):e(a):B()},b.aax_render_ad=function(a){a&&"undefined"!=typeof a.html&&a.html?c.write(a.html):h()};var C=!1,D=!1;b.addEventListener?b.addEventListener("message",q.receiveMessage,!1):b.attachEvent&&b.attachEvent("message",q.receiveMessage);try{q.options=JSON.parse(b.name)}catch(E){r("Could not parse name ",E)}b.name="";var F=!1,G=/https?:\/\/[\w\d-.]*images-amazon\.com\/[\w\d-\/]+productAds\/js\/.*\.js/,H=/d16g_renderOnView\s*:\s*[\'\"](.*)[\'\"][},]/,I=q.options.usePrefetchRoute||!1,J=b.addEventListener,K=b.removeEventListener,L=b.attachEvent,M=b.detachEvent;if(b.addEventListener&&(b.addEventListener=function(a,c,d){J.call(b,a,c,d)},b.removeEventListener=function(a,c,d){k(a)||K.call(b,a,c,d)}),b.attachEvent&&(b.attachEvent=function(a,c){return L.call(b,a,c)},b.detachEvent=function(a,c){return k(a)?!1:M.call(b,a,c)}),I&&"dfp"==q.options.adServer&&(q.options.src=q.options.src.replace(/\/adj\//,"/pfadj/")),q.client.sendMetrics("be"),q.sendMessage("safeFrameReady"),b.writeAdHandler=null,q.options.disableResizeFunc||q.sendMessage("resizeSafeFrameAd"),q.options.enableAdBlockerDetector&&(q.sendMessage("loadAdBlockerDetectorScript"),j()),q.options.htmlContent||q.options.htmlContentEncoded){var N=q.options.htmlContent;q.options.htmlContentEncoded&&(N=w(q.options.htmlContentEncoded)),b.writeAdHandler=function(){A(N),i()}}else if("undefined"!=typeof q.options.googlePublisherTag&&q.options.googlePublisherTag.libraryUrl)m(q.options.googlePublisherTag,"div-gpt-ad");else{var O=s(q.options.hostDomain)?t(q.options.src):q.options.src;g(O,"fallback()")}return q.client}(window,document),"function"==typeof window.writeAdHandler&&window.writeAdHandler()},{"./components/sfAPI":1,"./components/sfMsgHandler":2,"./components/util":3}]},{},[4]);            </script><script type="text/javascript" ,="" src="https://aax-us-east.amazon-adsystem.com/x/getad?pa=B01NGUW8PW&amp;c=100&amp;pc=1063306&amp;pt=Detail&amp;u=https%3A%2F%2Fwww.amazon.com&amp;src=501&amp;sz=245x250&amp;ad-sid=0101fe9027bd1ee809dafb9545fc1c0ebb18e046dd9f737ef87eccf735691e08067a&amp;pj=%7B%22asins%22%3A%22B01NGUW8PW%22%2C%22st%22%3A%22amzn.us.dp.home%22%2C%22zn%22%3A%22furniture_dcor.furniture%22%2C%22prid%22%3A%2201016ea33898f8a71df6383849351a9524a220be82a0d47b51557a283b4214f7c524%22%2C%22bn%22%3A%221063306%22%7D&amp;ad-uid=01017f92b5e70403efe832a1b96763868fecda51f69c30e4aed4e5ffb8522b4d5a3d&amp;slot=ams-detail-right-v2" onerror="fallback()"></script> <script>(function(){var url = 'https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/'; var urlStore = document.createElement('input'); urlStore.id="amsClickTrackerURLStore"; urlStore.setAttribute('type', 'hidden'); urlStore.value = url;  document.getElementsByTagName('body')[0].appendChild(urlStore);})();  var AMS_THIRD_PARTY_TRACKER = ''; var amsCreativeId='4429125460201'; </script> <script src="./1875115"></script>
+<style>
+
+
+
+
+
+
+body {
+    font-size: 13px;
+    line-height: 18px;
+}
+
+.a-icon.a-icon-star {
+    width: 80px;
+    height: 16px;
+}
+.a-icon.a-star-5-0 {
+    background-position: 0 0;
+}
+.a-icon.a-star-4-0 {
+    background-position: -16px 0;
+}
+.a-icon.a-star-3-0 {
+    background-position: -32px 0;
+}
+.a-icon.a-star-2-0 {
+    background-position: -48px 0;
+}
+.a-icon.a-star-1-0 {
+    background-position: -64px 0;
+}
+.a-icon.a-star-4-5 {
+    background-position: -170px 0;
+}
+.a-icon.a-star-3-5 {
+    background-position: -186px 0;
+}
+.a-icon.a-star-2-5 {
+    background-position: -202px 0;
+}
+.a-icon.a-star-1-5 {
+    background-position: -218px 0;
+}
+
+a {
+    color: #0066c0;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #c45500;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.a-spacing-none {
+    margin-bottom: 0 !important;
+}
+
+.a-spacing-mini {
+    margin-bottom: 6px !important;
+}
+
+.a-icon-row {
+    display: block;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    line-height: 0;
+}
+
+.a-icon-row.a-spacing-none {
+    padding-bottom: 0;
+}
+
+.a-icon {
+    background-image: url("https://images-na.ssl-images-amazon.com/images/G/01/da/creatives/aui-mini-sprite-2015-02.png");
+    background-repeat: no-repeat;
+    -webkit-background-size: 344px 15px;
+    background-size: 344px 15px;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+.a-icon.a-icon-dropdown {
+    width: 5px;
+    height: 8px;
+    background-position: -339px -4px;
+}
+
+.is-prime{
+}
+
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+    /* Retina-specific stuff here */
+    .a-icon {
+
+            background-image: url("https://images-na.ssl-images-amazon.com/images/G/01/da/creatives/aui-mini-sprite-2x-v2.png");
+    }
+
+    .a-icon.a-icon-star {
+        width: 78px;
+    }
+
+    .is-prime{
+
+            background-image: url("https://images-na.ssl-images-amazon.com/images/G/01/da/creatives/prime-sprite-2x.png") !important;
+            background-size: contain;
+        
+    }
+
+    .a-icon.a-star-2-0 {
+        background-position: -47px 0;
+    }
+    .a-icon.a-star-1-0 {
+        background-position: -62px 0;
+    }
+    .a-icon.a-star-4-5 {
+        background-position: -165px 0;
+    }
+    .a-icon.a-star-3-5 {
+        background-position: -181px 0;
+    }
+    .a-icon.a-star-2-5 {
+        background-position: -197px 0;
+    }
+    .a-icon.a-star-1-5 {
+        background-position: -213px 0;
+    }
+
+    .a-icon.a-icon-dropdown {
+        width: 5px;
+        height: 9px;
+        background-position: -328px -1px;
+    }
+
+}
+
+.a-button i.a-icon-dropdown {
+    position: absolute;
+    right: 9px;
+    top: 10px;
+}
+
+.a-letter-space {
+    display: inline-block;
+    width: 0.385em;
+}
+
+.a-size-small {
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.a-size-mini {
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.a-color-base {
+  color: #111 !important;
+}
+
+.a-color-secondary {
+  color: #555 !important;
+}
+
+.a-color-tertiary {
+  color: #767676 !important;
+}
+
+.a-color-price {
+    color: #b12704 !important;
+}
+
+.a-button {
+    display: inline-block;
+    vertical-align: middle;
+    height: 31px;
+    border: 1px solid;
+    border-color: #adb1b8 #a2a6ac #8d9096;
+    text-align: center;
+    overflow: hidden;
+    text-decoration: none !important;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    cursor: pointer;
+    *display: inline;
+    zoom: 1;
+}
+
+.a-button-primary {
+    border-color: #be952c #a68226 #9b7924;
+    background: #eeba37;
+}
+
+.a-button .a-button-inner {
+    background: #eff0f3;
+    background: -moz-linear-gradient(top, #f7f8fa, #e7e9ec);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7f8fa), color-stop(100%, #e7e9ec));
+    background: -webkit-linear-gradient(top, #f7f8fa, #e7e9ec);
+    background: -o-linear-gradient(top, #f7f8fa, #e7e9ec);
+    background: -ms-linear-gradient(top, #f7f8fa, #e7e9ec);
+    background: linear-gradient(top, #f7f8fa, #e7e9ec);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7f8fa', endColorstr='#e7e9ec',GradientType=0);
+}
+
+.a-button-primary .a-button-inner {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4) inset;
+    background: #f3d078;
+    background: -moz-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7dfa5), color-stop(100%, #f0c14b));
+    background: -webkit-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: -o-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: -ms-linear-gradient(top, #f7dfa5, #f0c14b);
+    background: linear-gradient(top, #f7dfa5, #f0c14b);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7dfa5', endColorstr='#f0c14b',GradientType=0);
+}
+
+.a-button .a-button-inner {
+    position: relative;
+    height: 31px;
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+
+span.a-button-inner {
+    display: block;
+}
+
+.a-button .a-button-text {
+    outline: 0;
+    color: #111111;
+    text-align: center;
+    font-size: 13px;
+    line-height: 29px;
+    display: block;
+    font-family: Arial, sans-serif;
+    white-space: nowrap;
+    background-color: transparent;
+    margin: 0;
+    border: 0;
+    width: auto;
+    height: 100%;
+    padding: 0;
+    padding: 0 10px 0 11px;
+}
+
+.a-button:hover {
+  border-color: #a2a6ac #979aa1 #82858a;
+}
+
+.a-button:hover .a-button-inner {
+    background: #e0e3e8;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #e7eaf0, #d9dce1);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e7eaf0), color-stop(100%, #d9dce1));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e7eaf0, #d9dce1);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e7eaf0, #d9dce1);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e7eaf0, #d9dce1);
+    /* IE10+ */
+    background: linear-gradient(top, #e7eaf0, #d9dce1);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e7eaf0', endColorstr='#d9dce1',GradientType=0);
+    /* IE6-8 */
+    *zoom: 1;
+}
+
+.a-button:active {
+  border-color: #adb1b8 #a2a6ac #a2a6ac;
+}
+
+.a-button:active .a-button-inner {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    background-color: #e7e9ec;
+    background-image: none;
+    filter: none;
+}
+
+.a-button-primary:hover {
+    border-color: #9c7e31 #90742d #786025;
+}
+
+.a-button-primary:active {
+    border-color: #a88734 #9c7e31 #9c7e31;
+}
+
+.a-button-primary:hover .a-button-inner {
+    background: #f1c860;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f5d78e, #eeb933);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f5d78e), color-stop(100%, #eeb933));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #f5d78e, #eeb933);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #f5d78e, #eeb933);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #f5d78e, #eeb933);
+    /* IE10+ */
+    background: linear-gradient(top, #f5d78e, #eeb933);
+    /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5d78e', endColorstr='#eeb933',GradientType=0);
+    /* IE6-8 */
+    *zoom: 1;
+}
+
+.a-button-primary:active .a-button-inner {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    background-color: #f0c14b;
+    background-image: none;
+    filter: none;
+}
+
+.a-button.a-button-small {
+    height: 22px;
+}
+
+.a-button.a-button-small .a-button-inner {
+    height: 22px;
+}
+
+.a-button.a-button-small .a-button-inner .a-button-text {
+    line-height: 20px;
+    font-size: 11px;
+    height: 20px;
+    padding: 0 6px 0 7px;
+}
+
+.a-button-dropdown {
+    width: 100%;
+}
+
+.a-button-dropdown .a-button-inner .a-button-text {
+    overflow: hidden;
+    padding-right: 0;
+    position: relative;
+    text-align: left;
+    text-overflow: ellipsis;
+    -ms-text-overflow: clip;
+    z-index: 10;
+    margin-right: 17px;
+}
+
+.a-button.a-button-small i.a-icon-dropdown {
+    right: 6px;
+    top: 6px;
+}
+
+.a-button.a-button-small .a-button-text {
+    line-height: 21px;
+}
+
+.a-native-dropdown {
+    -webkit-appearance: none;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.a-button-preorder {
+    border-color: #8f8f70 #858569 #717158;
+    background: #cdcda1;
+}
+
+.a-button-preorder:hover,
+.a-button-preorder:focus,
+.a-button-preorder.a-button-focus {
+    border-color: #858569 #7b7b61 #666650;
+}
+
+.a-button-preorder:active {
+    border-color: #8f8f70 #858569 #858569;
+}
+
+.a-button-preorder .a-button-inner {
+    background: #d9d9b8;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #e6e6d0, #cdcda1);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e6e6d0), color-stop(100%, #cdcda1));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #e6e6d0, #cdcda1);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #e6e6d0, #cdcda1);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #e6e6d0, #cdcda1);
+    /* IE10+ */
+    background: linear-gradient(top, #e6e6d0, #cdcda1);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#e6e6d0', endColorstr='#cdcda1', GradientType=0);
+    /* IE6-8 */
+    *zoom: 1;
+}
+
+.a-button-preorder:hover .a-button-inner {
+    background: #d0d0a7;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #ddddbf, #c4c490);
+    /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ddddbf), color-stop(100%, #c4c490));
+    /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ddddbf, #c4c490);
+    /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ddddbf, #c4c490);
+    /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ddddbf, #c4c490);
+    /* IE10+ */
+    background: linear-gradient(top, #ddddbf, #c4c490);
+    /* W3C */
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr='#ddddbf', endColorstr='#c4c490', GradientType=0);
+    /* IE6-8 */
+    *zoom: 1;
+}
+
+.a-button-preorder:active .a-button-inner {
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    background-color: #cdcda1;
+    background-image: none;
+    filter: none;
+}
+
+.a-button-stack .a-button {
+    display: block;
+    width: 100%;
+}
+
+#boxBorder{
+    border: 1px solid #cccccc;
+    border-color: ;
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    /* right: 0; bottom: 0; fails in IE 8 when ad is in slot;
+       using explicit width and height */
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 245px;
+    height: 250px;
+}
+
+#box {
+    display:none;
+    position:absolute;
+    font-family:arial, sans-serif;
+    right: 0;
+    bottom:0;
+    
+}
+
+#infoBorder {
+    padding: 0;
+    background: transparent;
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#info{
+    display: table-cell;
+    vertical-align: middle;
+    padding: 6px 10px 8px;
+    overflow:hidden;
+    position:relative;
+    zoom:1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#button{
+    float: right;
+    margin-top: 0;
+    width:100px;
+}
+
+#selectButton{
+    width: px;
+}
+
+.singleAsin #button{
+    margin-left: 0;
+    margin-top: 2px;
+}
+
+/* Pre order state */
+.po #button { 
+    width:100px;
+}
+
+.fallback #button {
+    width:100px;
+}
+.shopNow#button {
+    width:100px;
+}
+.po .shopNow#button {
+    width:100px;
+}
+
+#tip {
+    float: left;
+    clear: left;
+}
+
+/* Narrow Layout */
+.po .a-button-stack #button,
+.a-button-stack #button {
+    margin-left: 0;
+    margin-top:4px;
+}
+
+/* Single Asin State */
+.singleAsin #tip,.singleAsin .selectWrapper{display:none;}
+
+#buttonContainer.a-button-stack {
+    line-height:0;
+}
+
+#logo{
+    background-repeat: no-repeat;
+    display:none;
+    position: relative;
+    z-index: 25;
+
+}
+
+.singleAsin #logo{
+}
+
+
+
+.hide {
+    display: none !important;
+}
+
+#title{
+    display:block;
+    zoom:1;
+    margin-bottom:2px;
+}
+
+.stars #title{
+    margin-bottom: 0px;
+}
+
+#prices {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    height: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    line-height: 13px;
+}
+
+#listPrice {
+    line-height: inherit;
+}
+
+#ratingInfo {
+    padding-top: 2px;
+    margin-bottom: 1px;
+}
+    .singleAsin #ratingInfo{
+        margin-bottom: 2px;
+    }
+
+#priceSpace {
+    width: 0.231em;
+}
+
+#buyingPrice{
+    font-size: 13px;
+}
+
+
+
+
+#primeLogo {
+    width: 47px;
+    height: 14px;
+    background-repeat: no-repeat;
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+}
+
+#savingsContainer {
+    clear: left;
+    font-size: 11px;
+    line-height: 13px;
+    padding-top: 1px;
+}
+
+#preorder{
+    display:none;
+    margin: 0;
+}
+
+#tip{
+}
+
+.selectWrapper {
+    float: left;
+    clear: left;
+    position: relative;
+}
+
+/* Pre order state */
+.po #preorder{display: block;}
+
+
+/* Out of Stock State */
+.fallback #prices{display:none;}
+
+/* Single ASIN, out-of-stock, move action button to left */
+.fallback.singleAsin #buttonContainer {
+    float: left;
+    clear: left;
+}
+
+.fallback.singleAsin #button {
+    margin-top: 0;
+}
+
+/* VAT Text */
+
+/* Pull individual click-targets above full-ad #link */
+.click-target {
+	position: relative;
+	z-index: 20;
+}
+
+
+
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+body {
+  margin: 0;
+  padding: 0; }
+
+.hide {
+  display: none; }
+
+.hide {
+  display: none; }
+
+.buyBox-container {
+  float: left;
+  text-align: left; }
+  .buyBox-container #boxBorder {
+    display: block;
+    border-width: 0px !important;
+    height: auto;
+    position: static;
+    top: 142px;
+    width: 100%;
+    text-align: left; }
+    .buyBox-container #boxBorder #box {
+      max-height: 88px;
+      position: relative; }
+    .buyBox-container #boxBorder #title {
+      color: #0066c0 !important; }
+    .buyBox-container #boxBorder #button {
+      display: none; }
+    .buyBox-container #boxBorder #listPrice {
+      font-size: 12px; }
+  .buyBox-container .buyBox-fixed-height {
+    height: 88px !important; }
+  .buyBox-container #ratingCount {
+    color: #0066c0 !important; }
+  .buyBox-container #couponBox {
+    position: static;
+    bottom: auto; }
+    .buyBox-container #couponBox .couponInfo-narrow {
+      max-height: 88px;
+      display: table-cell;
+      vertical-align: bottom;
+      padding: 0 15px 5px 15px; }
+    .buyBox-container #couponBox .couponInfo-wide {
+      height: 88px;
+      display: table-cell;
+      vertical-align: middle; }
+
+#couponBorder {
+  position: absolute;
+  border: 1px dashed #AAA;
+  height: 238px;
+  top: 5px;
+  right: 5px; }
+
+#moreInfo {
+  display: none; }
+
+#primeLogo {
+  display: inline-block;
+  margin-top: 0px; }
+
+#vatText {
+  margin-right: 0px; }
+
+#pricePerUnit {
+  display: none; }
+
+.text-center {
+  text-align: center; }
+
+#ad {
+  border: 1px solid #DDDDDD;
+  height: 250px;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+  background-color: white;
+  font-family: HelveticaNeue-Light, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.ad-narrow {
+  border-radius: 4px; }
+
+.entire-vertical-align {
+  display: table-cell;
+  vertical-align: middle; }
+  .entire-vertical-align #adContainer {
+    display: table-cell; }
+
+#adContainer {
+  width: 100%;
+  height: 100%; }
+
+#customRedirectLink {
+  position: absolute;
+  cursor: pointer;
+  background: none repeat scroll 0 0 #FFFFFF;
+  display: block;
+  filter: Alpha(opacity=0);
+  opacity: 0;
+  -ms-filter: "alpha(opacity=0)";
+  width: 100%;
+  height: 100%;
+  z-index: 10; }
+
+#asinSprite {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 20; }
+
+.asin-narrow-vertical {
+  float: left;
+  min-width: 80px;
+  max-width: 170px;
+  height: 162px;
+  line-height: 162px;
+  text-align: center;
+  margin-left: 10px; }
+  .asin-narrow-vertical img {
+    max-width: 100px;
+    vertical-align: middle;
+    width: auto;
+    height: auto; }
+
+.asin-narrow-horizontal {
+  float: none;
+  height: 62px;
+  line-height: 62px;
+  text-align: center;
+  margin: 2px 10px 7px 10px; }
+  .asin-narrow-horizontal img {
+    max-height: 62px;
+    max-width: 220px;
+    vertical-align: middle;
+    width: auto;
+    height: auto; }
+
+.asin-wide-vertical {
+  float: left;
+  min-width: 150px;
+  max-width: 170px;
+  height: 250px;
+  line-height: 250px;
+  text-align: center;
+  margin-left: 10px; }
+  .asin-wide-vertical img {
+    max-width: 160px;
+    vertical-align: middle;
+    width: auto;
+    height: auto; }
+
+.asin-wide-horizontal {
+  float: left;
+  min-width: 160px;
+  max-width: 170px;
+  height: 88px;
+  line-height: 88px;
+  text-align: center;
+  margin-left: 10px; }
+  .asin-wide-horizontal img {
+    max-width: 160px;
+    vertical-align: middle;
+    width: auto;
+    height: auto; }
+
+.coupon-asin-vertical {
+  margin: 1px 0 0 15px !important; }
+
+.logo-container {
+  text-align: center;
+  overflow: hidden;
+  display: table-cell;
+  vertical-align: middle; }
+
+.logo-container-vertical #brandLogoContainer {
+  max-height: 65px; }
+.logo-container-vertical img {
+  max-height: 65px; }
+
+.logo-container-narrow-horizontal {
+  padding-top: 4px;
+  max-height: 85px; }
+  .logo-container-narrow-horizontal #brandLogoContainer {
+    max-height: 30px; }
+  .logo-container-narrow-horizontal img {
+    max-height: 30px; }
+
+.logo-container-wide-horizontal {
+  height: 250px; }
+  .logo-container-wide-horizontal #brandLogoContainer {
+    max-height: 65px; }
+  .logo-container-wide-horizontal img {
+    max-height: 65px; }
+
+.logo-container-narrow-vertical {
+  padding-top: 5px;
+  height: 162px; }
+
+.logo-container-wide-vertical {
+  text-align: left;
+  height: 250px; }
+
+#brandLogoContainer {
+  margin: 5px 10px 0 10px; }
+
+#sponsoredByBrandWrapper {
+  margin: 10px;
+  line-height: 12px;
+  animation-timing-function: linear; }
+
+#sponsoredByBrand {
+  color: #767676; }
+
+#headlineContainer {
+  margin: 10px 5px 5px 5px;
+  word-wrap: break-word; }
+
+#headlineText {
+  font-style: italic;
+  line-height: 120%;
+  color: #333333; }
+
+.headline-wide-vertical {
+  margin: 5px 10px !important;
+  text-align: left; }
+
+.headline-narrow-horizontal {
+  margin: 5px 10px !important;
+  max-height: 40px; }
+
+.headline-wide-horizontal-coupon {
+  margin-left: 10px !important;
+  margin-right: 10px !important; }
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+
+
+<div id="ad" class=" ad-narrow">
+    <div id="couponBorder" class="hide"></div>
+    <div id="adContainer">
+        <a id="customRedirectLink" href="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/https://www.amazon.com/dp/B01GL8IT7K?ref_=ams_ad_dp_ovrl" target="_top"></a>
+        <div id="asinVerticalContainer" class=" asin-narrow-vertical">
+        <a id="asinSprite" href="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/https://www.amazon.com/dp/B01GL8IT7K?ref_=ams_ad_dp_asin_img" target="_top"><img src="./616lbf80ZdL._AC_SX220_SY150_.jpg" id="asinNARROWImg" style="border: 0px;"></a></div>
+        <div id="logoContainer" class=" logo-container logo-container-vertical logo-container-narrow-vertical" style="width: 130px;">
+            <div id="brandLogoContainer" class=" ">
+                <img src="./749d2d7f4d3b9586102ec10b9835798d.w300.h300._CR0,0,300,300_AC_SL280_SY80_.jpg" id="brandLogoImage" style="max-width: 110px;">
+            </div>
+            <div id="sponsoredByContainer" class="hide" style="width: 130px;">
+                <div id="sponsoredByBrandWrapper">
+                    <span id="sponsoredByBrand">HEATHER ANN CREATIONS</span>
+                </div>
+            </div>
+            <div id="headlineContainer" class="" style="width: 120px;">
+                <span id="headlineText" style="font-size: 14px;">A Timeless Design with a Touch of Chevron</span>
+            </div>
+            <div id="asinWideHorizontalContainer" class="hide">
+            </div>
+            <div id="buyBoxWideContainer" class="hide buyBox-container">
+            </div>
+        </div>
+        <div id="asinNarrowHorizontalContainer" class="hide">
+        </div>
+        <div id="buyBoxNarrowContainer" class=" buyBox-container">
+
+<div id="boxBorder">
+    <div id="box" class=" singleAsin" style="visibility: visible; display: block; opacity: 1;">
+
+        <div id="infoBorder">
+            <div id="info">
+                <a id="title" class="a-size-small a-color-base click-target" href="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/https://www.amazon.com/dp/B01GL8IT7K?ref_=ams_ad_dp_ttl" target="_top"><span id="titleWrapper" style="font-size: 12px;">Heather Ann Creations Heirloom Collection Handcrafted 2 Drawer Che...</span></a>
+                
+                <div id="preorder" class="a-size-mini a-color-secondary"></div>
+                
+                    <a id="ratingInfo" class="a-icon-row a-color-secondary click-target hide">
+                        <i id="ratingStars" class="a-icon a-icon-star"></i><span class="a-letter-space"></span><span class="a-size-small"><span id="ratingCount"></span></span>
+                    </a>
+
+                
+                <p id="prices">
+                    <strike id="listPrice" class="a-color-secondary a-size-mini hide">$197.77</strike><span id="priceSpace" class="a-letter-space hide"></span><span id="buyingPrice" class="a-color-price"> $262.19 </span><span id="pricePerUnit" class="a-size-mini a-color-price"></span>
+                    
+                    
+
+                    <span id="primeLogo" class="is-prime" style="background-image: url(&quot;//images-na.ssl-images-amazon.com/images/G/01/da/creatives/prime-2015-04.png&quot;);"></span>
+                </p>
+
+
+                
+
+
+                <div id="buttonContainer" class="controls a-button-stack">
+
+                    <div id="tip" class="a-size-mini a-color-secondary"></div>
+
+
+                    <div class="selectWrapper" id="selectWrapper">
+                        <a id="selectButton" class="a-button a-button-dropdown a-button-small click-target">
+                            <span class="a-button-inner">
+                                <span id="selectText" class="a-button-text"></span>
+                                <i class="a-icon a-icon-dropdown"></i>
+                            </span>
+                            <select id="selector" class="a-native-dropdown"><option value="B01GL8IT7K" title=""></option></select>
+                        </a>
+                    </div>
+
+                    <a class="a-button a-button-primary a-button-small click-target" id="button" href="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/https://www.amazon.com/gp/product-ads/shared/utility/add-to-cart.html?ie=UTF8&amp;token=DFDD373DC2F4D302AAAD346EDC3126449E5C5801&amp;time=1485995949542&amp;merchantId=ATVPDKIKX0DER&amp;asin=B01GL8IT7K&amp;program=dads&amp;adPrice=262.19&amp;ref_=ams_ad_dp_atc" target="_top">
+                        <span class="a-button-inner">
+                            <span id="buttonText" class="a-button-text">Add to Cart</span>
+                        </span>
+                    </a>
+
+                </div>
+                
+                    <div id="savingsContainer" class="hide"><span id="saveText" class="a-color-secondary a-size-mini">Save: </span><span id="savings" class="a-color-price">$-64.42 (-33%)</span></div>
+                    <a id="logo" href="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/https://www.amazon.com/dp/B01GL8IT7K" target="_top"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </div>
+</div>
+<script>
+// setTimeout fixes load on back button for safari in some slots.
+setTimeout(function(){
+// Wrap it in a closure for better minification.
+    (function(window, document, parent) {
+        // Helpers includes functions such as isSecure and forEach.
+        var ShazamLogger = (function() {
+    var ForesterLogger = (function() {
+
+    var DEFAULT_SAMPLE_RATE = 0.05;
+    var DEFAULT_KINESIS_ID = 'clmet';
+
+    /**
+     * Constructor
+     * @param channelName required to indicate the forester channel name. If it is
+     * missing, all the calls for logging by this object will be handled silently.
+     * @param impressionId This is an optional parameter. If it is not provided, 
+     * a random uuid will be generated.
+     * @param stage This is an optional parameter. It indicates the stage of a product,
+     * defaulted to prod stage if not provided.
+     * @param region This is an optional parameter. It indicates the region where the
+     * product will be used, defaulted to north american.
+     * @param samplingRate (optional float between 0 and 1). Specifies the percentage of impression
+     * for which metrics get recorded.
+     * @param kinesisAppId. Optional parameter if you wish to send logs to a different
+     * kinesis stream other than the default (ClientMetrics-*).
+     * Stage and region are used to generate log endpoint url.
+     * 
+     * @returns a new ForseterLogger object
+     */
+    var ForesterLogger = function(channelName, impressionId, stage, region, samplingRate, kinesisAppId) {
+        this.samplingRate = samplingRate || DEFAULT_SAMPLE_RATE;
+        this.shouldFireMetrics = Math.random() <= this.samplingRate;
+        this.channelName = channelName;
+        this.impressionId = impressionId || ForesterLogger.generateUUID();
+        this.stage = stage || 'prod';
+        this.region = region || 'na';
+        this.kinesisAppId = kinesisAppId || DEFAULT_KINESIS_ID;
+        // Use the stage and region to construct the server endpoint
+        this.log_endpoint = ForesterLogger.generateUrl(this.stage, this.region);
+    };
+
+    /**
+     * @returns a randomly generated uuid
+     */
+    ForesterLogger.generateUUID = function() {
+        function subUUID() {
+        	// Generate a random value between 0x10000 and 0x20000
+        	// then convert to hex string ie 1FFFF
+        	// then cutoff first digit and take the next four to avoid 
+        	// problems when Math.floor/ or toString doesn't work correctly and outputs a decimal value as well
+        	// ie 1FFFF.FFFFFFFFF
+            return  Math.floor((1 + Math.random()) * 0x10000).toString(16).substr(1,4);
+        }
+        return subUUID() + subUUID() + subUUID() + subUUID() + subUUID() + subUUID() + subUUID() + subUUID();
+    };
+    
+    /**
+     * Generate a url with combination of stage and region
+     * Beta stage will be set to gamma because of the forester channel issue, 
+     * in the default case it will also be set to gamma
+     */
+    ForesterLogger.generateUrl = function(stage, region) {
+        var sisProtocol = '';
+        var sisDomain = '';
+        // Jp locale uses special case which is normalized to 'fe'
+        region = region == 'jp' ? 'fe' : region;
+        region = region.toLowerCase(); //make sure regions are in lowercase since we sometimes work with uppercase digraphs in shazam
+        // NA doesnt require a suffix, but other requires
+        var regionSuffix = region == 'na' ? '' : '-' + region;
+    
+        // Function to get sisDomain 
+        var getSisDomain = function(stageSuffix) {
+            var subdomain = (regionSuffix ? 'aax' : 's') + regionSuffix + stageSuffix;
+            var path = (regionSuffix ? '/s' : '');
+            return subdomain + '.amazon-adsystem.com' + path;
+        }
+        switch (stage) {
+        case 'prod':
+        case 'prodlabs':
+            sisProtocol = 'ANY';
+            sisDomain = getSisDomain('');
+            break;
+        case 'beta':
+        case 'gamma':
+            sisProtocol = 'http:';
+            sisDomain = getSisDomain(region == 'na' ? '-preprod' : '-gamma');
+            break;
+        case 'local':
+        default:
+            sisProtocol = 'http:';
+            sisDomain = getSisDomain(region == 'na' ? '-preprod' : '-gamma');
+            break;
+        }
+        var log_server_endpoint = (sisProtocol === 'ANY' ? location.protocol : sisProtocol) + '//' + sisDomain;
+        return log_server_endpoint;
+    };
+    
+    /**
+     * Helper for iterating over collections
+     */
+    ForesterLogger.each = function(collection, callback) {
+        if (!collection || !callback || typeof callback !== 'function') {
+            return;
+        }
+    
+        if (collection.length) {
+            for ( var i = 0, length = collection.length; i < length; i++) {
+                callback(i, collection[i]);
+            }
+        } else {
+            for ( var key in collection) {
+                callback(key, collection[key]);
+            }
+        }
+    };
+    
+    /**
+     * @param options A hash-map of options to do in the process of generating the query string
+     * @returns a query string by flattening a hash-map of params that will be after the '?' delimiter
+     */
+    ForesterLogger.getQueryString = function(params, options) {
+        options = options || {}; // Default to empty hash-map
+        var escapeValue = (typeof options.escape === 'boolean') ? options.escape : true; // Default to encode the value to avoid special characters
+        var query = [];
+        ForesterLogger.each(params, function(name, param) {
+            if (typeof param !== 'undefined') {
+                param = (param.constructor === Array) ? param.join(',') : param;
+    
+                // Encode the value in order to avoid the influence of containing '&' in param value
+                if (escapeValue) {
+                    param = encodeURIComponent(param);
+                }
+                query.push([ name, param ].join('='));
+            }
+        });
+    
+        var queryString = query.join('&');
+        return queryString;
+    };
+    
+    /**
+     *  Helper method for making the complete forester url from an object of parameters. This is used by
+     *  the send pixel method and can be used externally if you want to generate the logging url but not
+     *  fire the event immediately.
+     */
+    ForesterLogger.prototype.generatePixelUrl = function(params) {
+        // Hash-map of options in generating the query string
+        var options = {};
+        // add the impressionId
+        params = params || {};
+        // Encode the value in order to avoid the influence of containing '&' in param value
+        params.i = encodeURIComponent(this.impressionId);
+        params.app = encodeURIComponent(this.kinesisAppId);
+        
+        var pixelParams = {};
+        pixelParams['d'] = 'forester-did';
+        pixelParams['ex-fch'] = this.channelName;
+        
+        pixelParams['ex-fargs'] = '?' + encodeURIComponent(ForesterLogger.getQueryString(params));
+        pixelParams['cb'] = new Date().getTime(); //To make sure the url generated is different everytime so browser will hit
+
+        // No need to escape value for pixelParams since it is well formed and the values are known to us
+        options.escape = false;
+
+        return this.log_endpoint + '/iui3?' + ForesterLogger.getQueryString(pixelParams, options);
+    }
+
+    /**
+     * Sends a pixel to remote logging server
+     */
+    ForesterLogger.prototype.sendPixel = function(params) {
+        if(!this.shouldFireMetrics) {
+            return;
+        }
+        var pixel = new Image();
+        pixel.src = this.generatePixelUrl(params);
+        return pixel;
+    };
+    
+    
+    /**
+     * Log the impression with provided argsLists and its own impressionId.
+     * @param argsLists The key-value pair to be inculded. It's optional.
+     */
+    ForesterLogger.prototype.logImpression = function(argsLists) {
+        if (this.channelName == null) {
+            return;
+        }
+        //to specify it is a impression pixel
+        argsLists = argsLists || {};
+        argsLists.imp = 1;
+        this.sendPixel(argsLists);
+    };
+    
+    /**
+     * Log the events with event name and event value 
+     * @param eventName Indicated the name of a specific event.
+     * @param eventValue The value of the event. It can be a simple data type or a
+     * json object
+     * @param eventType The type of the event value. It is optional. some example
+     * inputs may be: counter, timer, json
+     */
+    ForesterLogger.prototype.logEvent = function(eventName, eventValue, eventType) {
+        if (this.channelName == null) {
+            return;
+        }
+        var events = {};
+        if (eventName == null || eventValue == null) {
+            return;
+        }
+        try {
+            if (eventType) {
+                events['type'] = eventType;
+            }
+            var val = JSON.stringify(eventValue);
+            events.en = eventName;
+            events.ev = val;
+        } catch (e) {
+            //handle when JSON.stringify is not available(< ie 8 etc). Logging it with special event 
+            //named stringifyNotAvailable for tracking whether this situation happens and how often it
+            //happens.
+            events['stringifyNotAvailable'] = 1;
+        }
+        this.sendPixel(events);
+    };
+
+    /**
+     * Setter method for `impressionId` property
+     */
+    ForesterLogger.prototype.setImpressionId = function(impressionId) {
+        this.impressionId = impressionId;
+    };
+
+    return ForesterLogger;
+})();
+
+    var DEFAULT_SAMPLE_RATE = 0.05;
+    var DEFAULT_FORESTER_CHANNEL = 'da-cx-metrics';
+
+    /**
+     * Constructor of ShazamLogger, inherit from ForesterLogger for logging typical
+     * ecommerce data at impression time. 
+     * @param impressionId It is optional, if not provided, a random uuid will be 
+     * generated.
+     * @param foresterChannel. Optional parameter if you wish to log to a different
+     * forester chanel other than the default
+     * @param samplingRate (optional float between 0 and 1). Percentage of impressions which will records metrics
+     * @param kinesisAppId. Optional parameter if you wish to send logs to a different
+     * kinesis stream other than the default (see ForesterLogger.js)
+     * @returns a new ShazamLogger object
+     */
+    var ShazamLogger = function(impressionId, foresterChannel, samplingRate, kinesisAppId) {
+        var samplingRate = samplingRate || DEFAULT_SAMPLE_RATE;
+        var foresterChannel = foresterChannel || DEFAULT_FORESTER_CHANNEL;
+        ForesterLogger.call(this, foresterChannel, impressionId, 'prod', 'na', samplingRate, kinesisAppId);
+        var s_logger = this;
+        this.timers = {};
+        /**
+         * error listener for all the templates*/
+        ShazamLogger.addListener(window ,"error", function(e) {
+            // Add a stack trace if it is supported by browser
+            if(e.error && e.error.stack) {
+                var stack = e.message + " : " + e.error.stack;
+                // Check the length and log the error message with stack trace
+                s_logger.addCount(ShazamLogger.LOG_EVENT_NAMES.UNCAUGHT_ERROR, stack.length < 500 ? stack : stack.substring(0, 500));
+            } else {
+                // Log the error message if the browser doesn't support stack
+                s_logger.addCount(ShazamLogger.LOG_EVENT_NAMES.UNCAUGHT_ERROR, e.message);
+            }
+        });
+    };
+    /**
+     * Handles Object.create does not exist in IE < 8
+     */
+    if (typeof Object.create !== 'function') {
+        Object.create = function(obj) {
+            function fake(){}
+            fake.prototype = obj;
+            return new fake();
+        };
+    }
+    
+    ShazamLogger.prototype = Object.create(ForesterLogger.prototype);
+    
+    ShazamLogger.prototype.constructor = ShazamLogger;
+    
+    /**
+     * Define event types could be used in ShazamLogger*/
+    ShazamLogger.EVENT_TYPES = {
+        TIMER:          'timer',
+        COUNTER:        'counter',
+        JSON:           'json'
+    };
+    
+    ShazamLogger.LOG_EVENT_NAMES = {
+        BUY_BOX_LOAD_LATENCY:       'BuyBoxLoadLatency',
+        AAN_LATENCY:                'AanLatency',
+        AAN_ERROR:                  'AanError',
+        DROP_DOWN_SELECTOR:         'DropDownSelector',
+        UNCAUGHT_ERROR:             'UncaughtError',
+        UNDEFINED_TRACKER_ARG:      'UndefinedTrackerArg',
+        COORDINATOR_TRACKER:        'CoordinatorTracker',
+        IMAGE_LOAD_LATENCY:         'ImageLoadLatency',
+        CREATIVE_LOAD_LATENCY:      'CreativeLoadLatency'
+    };
+    
+    ShazamLogger.addListener = function(element, eventName, listener) {
+        //Cross-browser add event listener
+        var eventListener = function(e) {
+            // Cross-browser event
+            e = e || window.event;
+            return listener(e);
+        };
+        if (element.addEventListener) {
+            element.addEventListener(eventName, eventListener, !0);
+        } else {
+            eventName = 'on' + eventName;
+            if (element.attachEvent) {
+                element.attachEvent(eventName, eventListener);
+            } else {
+                element[eventName] = eventListener;
+            }
+        }
+    };
+    
+    /**
+     * Logimpression with defaulted key and value pairs in it, including shazamId,
+     * templeteName, locale and adServer information
+     * @param argsLists The key-value pair to be inculded. It's optional.
+     */
+    ShazamLogger.prototype.logImpression = function(argsLists) {
+        argsLists = argsLists || {};
+        argsLists.s = argsLists.shazamId || '3181591';
+        argsLists.n = argsLists.templateName || 'AMS Detail Right';
+        argsLists.l = argsLists.locale || 'US';
+        argsLists.as = argsLists.adServer || 'cornerstone';
+        argsLists.tmjv = argsLists.templateMajorVersion || '1';
+        argsLists.tmnv = argsLists.templateMinorVersion || '60';
+        switch(argsLists.as) {
+            case 'doubleclick':
+                argsLists.ai = argsLists.adId || '%eaid!';
+                argsLists.ci = argsLists.creativeId || '%ecid!';
+                break;
+            case 'cornerstone':
+                argsLists.ai = argsLists.adId || '{%ad_cfid}';
+                argsLists.ci = argsLists.creativeId || '{%creative_cfid}';
+                break;
+            case 'preview':
+            case 'AdLab':
+                argsLists.ai = argsLists.adId || 'AD_ID';
+                argsLists.ci = argsLists.creativeId || 'CREATIVE_ID';
+                break;
+            case 'mediacentral':
+                argsLists.ai = argsLists.adId || spInfo.aid;
+                argsLists.ci = argsLists.creativeId || spInfo.cid;
+                break;
+            default:
+                argsLists.ai = argsLists.adId || '--##AD_ID##--';
+                argsLists.ci = argsLists.creativeId || '--##CREATIVE_ID##--';
+        }
+        argsLists.ua = navigator.userAgent;
+        ForesterLogger.prototype.logImpression.call(this, argsLists);
+    };
+
+    /** 
+     * Start a timer for a specific event 
+     * @param eventName Indicate the name of a specific event
+     */
+    ShazamLogger.prototype.startTimer = function(eventName) {
+        this.timers[eventName] = new Date;
+    };
+    
+    /**
+     * End a timer for a specific event get the begin time and calculate the time
+     * finally log the time event
+     * Time is measured in millisecond 
+     * @param eventNmae Indicate the name of a specific event
+     */
+    ShazamLogger.prototype.endTimer = function(eventName) {
+        if (this.timers[eventName] == null) {
+            return;
+        }
+        this.timers[eventName] = new Date - this.timers[eventName];
+        this.logEvent(eventName, this.timers[eventName], ShazamLogger.EVENT_TYPES.TIMER);
+        this.timers[eventName] = null;
+    };
+    
+    /**
+     * Log a counter type event. 
+     * @param eventName Indicate the name of a specific event
+     * @param eventValue This is optional and is defaulted to 1 since it is a counter
+     * for a single event.
+     */
+    ShazamLogger.prototype.addCount = function(eventName, eventValue) {
+        eventValue = eventValue || 1;
+        this.logEvent(eventName, eventValue, ShazamLogger.EVENT_TYPES.COUNTER);
+    };
+    
+    return ShazamLogger;
+})();;
+        var shazam_logger = new ShazamLogger();
+        var ON_AMAZON_PATTERN = /\.amazon\.com(:.*)?$/;
+
+/**
+ * If IS_3P is defined, then store its value, otherwise we don't know if we're on a third party site.
+ * IS_3P will not be defined within this context so minification will not minify it.
+ * The IS_3P variable is only defined when Cornerstone serves this ad unit to a 3P site.
+ *
+ * We are assuming that the creative is on amazon if the iframe the creative is in
+ * or the iframe in which the iframe of the creative is in has amazon domain.
+ *
+ * We assume this will work because anyone who properly uses our ads
+ * will fall under the following categories:
+ *
+ * On Amazon:
+ * Uses iframeproxy and could possibly have aax iframe within it that holds the content.
+ *
+ * O&O Subsidiaries:
+ * Uses amazon scripts that inject into divs, no Amazon iframes (doesn't use iframeproxy).
+ *
+ * 3P:
+ * Uses AAX iframe, so referrer isn't Amazon.
+ *
+ */
+
+var knownToBeOnThirdParty = (typeof IS_3P !== 'undefined') && IS_3P;
+// If the parent iframe indicates we are on Amazon, this variable stores 'true',
+// but we may be on Amazon even if the parent doesn't indicate it.
+
+var knownToBeOnAmazon = false;
+
+if (!knownToBeOnThirdParty) {
+    // Find the top-most accessible window
+    var topWindow = window;
+
+    // Bypass tree traversal if we are within a SafeFrame
+    if (topWindow.SFClient) {
+        knownToBeOnAmazon = topWindow.SFClient.isOnAmazon();
+    } else {
+        try {
+            while(topWindow != topWindow.parent) {
+                // Attempt to access a variable on the parent, expect to either encounter an exception or undefined when we've reached the top window.
+                if(!topWindow.parent.document) {
+                    // Safari will not throw an exception for cross-domain accesses, so we throw one explicitly
+                    // See https://tt.amazon.com/0050115719
+                    throw new Error("cross-domain exception");
+                }
+                topWindow = topWindow.parent;
+            }
+        } catch(e) {}
+
+        try {
+            // Check within the top-most `window` context that exists if we have access to SafeFrame, otherwise
+            // Try to find out if we are on Amazon via a regex on the URL (the old way)
+            // SafeFrame can exist in containing iframes in cases like Mobile AddToCart
+            // and to keep this backwards compatible,
+            knownToBeOnAmazon = topWindow.SFClient ? topWindow.SFClient.isOnAmazon() : ON_AMAZON_PATTERN.test(topWindow.location.host);
+        } catch(e) {}
+    }
+}
+
+// This logic takes care of the case when we show ads on IMDB, Woot etc.
+var knownToBeOnSubsidiary = !knownToBeOnThirdParty && !knownToBeOnAmazon;
+
+/**
+ * Stub method used to for doing nothing with good minification.
+ */
+var DO_NOTHING = function(){};
+
+/**
+ * Checks the given url and finds whether it is secure or not.
+ * @method isSecure
+ * @param url {String} protocol to check.
+ * @return Returns true if protocol is secure, false otherwise.
+ */
+var isSecure = function(url) {
+    return (/s/.test(url.protocol));
+};
+
+/**
+ * Checks the given url and finds whether is is an internal link or not.
+ * @method isInternalUrl
+ * @param url {String} Fully Qualified URL to check.
+ * @return Return true if the url is internal to Amazon.com, false otherwise.
+ */
+var isInternalUrl = function(url) {
+    if(!url){ // No Url is treated as external
+        return false;
+    }else{
+        var regex = /^((?:https?:)\/\/)?([\w\-\.]+(?::[0-9]+)?)\/?(.*)$/;
+        var parts = url.match(regex);
+        var domain = parts[2];
+        return /\.amazon\.com(:.*)?$/.test(domain);
+    }
+};
+
+/**
+ * iterates over an array.
+ * @method forEach
+ * @param array {Array}
+ * @return Does not return anything - applies callback for each element of the array.
+ */
+var forEach = function(array, callback) {
+    for (var index = 0, length = array.length; index < length; index++) {
+        callback(array[index], index, array);
+    }
+};
+
+/**
+ * Return an element with a given ID.
+ * @method getElementByID
+ * @param id {String}
+ * @return DOM Element with the given ID.
+ */
+var getElementById = function(id) {
+    return document.getElementById(id);
+};
+
+var getElementsByClassName = function(className) {
+    if (document.getElementsByClassName) {
+        return document.getElementsByClassName(className);
+    } else if (document.querySelectorAll) { // for IE 8
+        return document.querySelectorAll('.' + className);
+    } else  if (document.evaluate) {
+        var pattern = ".//*[contains(concat(' ', @class, ' '), ' " + className + " ')]";
+        var elements = document.evaluate(pattern, document, null, 0, null);
+        var result = [];
+        var i;
+        while(i = elements.iterateNext()) {
+            result.push(i);
+        }
+        return result;
+    } else { // Brute force fall back
+        var elements = document.getElementsByTagName("*");
+        var pattern = new RegExp("(^|\\s)" + className + "(\\s|$)");
+        var result = [];
+        for (var i = 0; i < elements.length; i++) {
+            if ( pattern.test(elements[i].className) ) {
+                result.push(elements[i]);
+            }
+        }
+        return result;
+    }
+};
+    
+/**
+ * Returns a query string from a query object
+ * @method getQueryString
+ * @param  {Object} query
+ * @param  {Boolean} escapeResult
+ * @return {String} query string
+ */
+var getQueryString = function(query, escapeResult) {
+    var queryStringParts = [];
+    for (var key in query) {
+        queryStringParts.push(key + '=' + query[key]);
+    }
+
+    var queryString = queryStringParts.join('&');
+    return escapeResult ? encodeURIComponent(queryString) : queryString;
+};
+
+/**
+ * Perform a time-sensitive fade animation. Only one element can have the fade effect at one time.
+ * @method fadeElement
+ * @param element {Object} HTML element which will be faded in/out.
+ * @param isIn {Boolean} Determines the fade direction in or out.
+ * @param cb {Function} Callback function that will be called when animation ends.
+ * @param fadeDuration {Number} Speed of the fade animation in milliseconds.
+ * @return Does not return anything.
+ */
+var fadeStart;
+var fadeElement = function(element, isIn, cb, fadeDuration) {
+    element.style.visibility = 'visible';
+
+    var now = new Date();
+    fadeStart = fadeStart || now;
+    fadeDuration = fadeDuration || 300;
+    var opacity = Math.min((now - fadeStart) / fadeDuration, 1);
+    if(!isIn){
+        opacity = 1 - opacity;
+    }
+    setOpacity(element, opacity);
+    if ((isIn && opacity < 1) || (!isIn && opacity > 0)) {
+        setTimeout(function(){
+            fadeElement(element, isIn, cb, fadeDuration);
+        }, 25);
+    } else {
+        // Clean the start time of the fade for the next fade effect.
+        fadeStart = null;
+        // Clean filter, otherwise, IE 6/7/8 displays the background of the ad.
+        element.style.filter = '';
+        if (cb) { cb(); }
+    }
+};
+
+/**
+ * Set the opacity of a given element.
+ * @method setOpacity
+ * @param element {Object} - DOM element for which opacity has be to set
+ * @param opacity {Number} 
+ * @return Does not return anything - sets the opacity of the element.
+ */
+var setOpacity = function(element, opacity) {
+    var style = element.style;
+    style.display = 'block';
+    style.opacity = style.mozOpacity = opacity;
+    style.filter = 'alpha(opacity=' + (opacity * 100) + ')';
+};
+
+/**
+ * Set the background image of a given element.
+ * @method setBackgroundImage
+ * @param element {Object} - DOM element for which background has be to set
+ * @param backgrounfImageUrl {String}
+ * @return Does not return anything - sets the background of the element.
+ */
+var setBackgroundImage = function(element, backgroundImageUrl) {
+    element.style.backgroundImage = 'url(' + backgroundImageUrl + ')';
+};
+
+/**
+ * Set the href of a given element (and give it a target).
+ * @method setHref
+ * @param element {Object} - DOM element for which href and target have to be set
+ * @param href {String}
+ * @return Does not return anything - sets the href and target for the given element.
+ */
+var setHref = function(element, href, newWindow) {
+    element.href = href;
+    element.target = newWindow ? "_blank" : "_top";
+};
+
+/**
+ * Sets one or more style attributes for an element
+ * @param {Object} element    DOM element to set the style attributes on
+ * @param {Object} attributes Style attributes hash map to be set on the DOM element
+ */
+var setStyle = function(element, attributes) {
+    for (var key in attributes) {
+        element.style[key] = attributes[key];
+    }
+};
+
+/**
+ * Checks if the element has a given class.
+ * @method hasClass
+ * @param elem {Object} - DOM element for which we are checking the class
+ * @param cls {String} - Name of the class
+ * @return returns Boolean.
+ */
+var hasClass = function(elem, cls) {
+    return elem.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+};
+
+/**
+ * Adds class to a given element.
+ * @method addClass
+ * @param elem {Object} - DOM element for which to add class
+ * @param cls {String} - Name of the class
+ * @return Does not return anything. Adds class to the given element.
+ */
+var addClass = function(elem, cls) {
+    if (!hasClass(elem, cls))
+        elem.className += " " + cls;
+};
+
+/**
+ * Removes class of a given element.
+ * @method removeClass
+ * @param elem {Object} - DOM element for which to remove the class
+ * @param cls {String} - Name of the class
+ * @return Does not return anything. Removes class from the given element.
+ */
+var removeClass = function(elem, cls) {
+    if (hasClass(elem, cls)) {
+        var reg = new RegExp('(\\s|^)' + cls + '(\\s|$)');
+        elem.className = elem.className.replace(reg, ' ');
+    }
+};
+
+/**
+ * Show element.
+ * @method show
+ * @param elem {Object} - DOM element to be made visible
+ * @return Does not return anything. Makes element visible.
+ */
+var show = function(elem) {
+    removeClass(elem, 'hide');
+};
+
+/**
+ * Hide element.
+ * @method hide
+ * @param elem {Object} - DOM element to hide
+ * @return Does not return anything. Hides the element.
+ */
+var hide = function(elem) {
+    addClass(elem, 'hide');
+};
+
+/**
+ * Trims leading and trailing spaces of a text. 
+ * Older versions of IE does not support String trim() function.
+ * @method trimText
+ * @return {String} Returns trimmed text.
+ */
+var trimText = function(text) {
+    return text.replace(/^\s+|\s+$/, '');
+};
+
+/**
+ * Gets the value of the simulation with the given name.
+ * If it doesn't exist or is not accessible, the defaultValue will be returned.
+ * @method getSimulationValue
+ * @return {String} Returns trimmed text.
+ */
+var getSimulationValue = function(simulationName, defaultValue) {
+    try {
+        return (parent && parent.sim && parent.sim[simulationName]) ? parent.sim[simulationName] : defaultValue;
+    } catch(e) {
+        return defaultValue;
+    }
+};
+
+var isShazamPreview = function() {
+        try {
+            return (parent && parent.sim);
+        } catch(e) {
+            return false;
+        }
+};
+
+/**
+ * Makes a call to the provided endpoint with exponential backoff retry.
+ * If the service call times out, a retry will be attempted until the
+ * maximum number of times of requests is reached.
+ * @method callService
+ * @param endpoint {String}
+ *          The service's available endpoint.
+ *          This is what precedes the '?' character and
+ *          is preceded by the protocol and '//' characters in the URI.
+ *          EG: www.amazon.com/aan/
+ *
+ * @param params {Object}
+ *          The argument-value pairs that are passed to the service.
+ *          This should be a flat JSON object, which is converted to a key-value list string
+ *          that is preceded by the '?' character in the URI.
+ *          EG: {Operation:"ping"} -> Operation=ping
+ *          or: {"Operation":"getElementById","id":"1000"} -> Operation=getElementById&id=1000
+ *
+ * @param maximumTryCount {Number}
+ *          The maximum number of times the service call should happen. Should be an integer.
+ *          The total number of calls can be less than this, since calls will stop
+ *          being created once the first successful callback occurs.
+ *          EG: 2
+ *
+ * @param retryTimeInMS {Number}
+ *          The time to wait in milliseconds until the second call is made.
+ *          For every successive call after the second call, this number is set to the product of itself and the exponentialBackoffCoefficient.
+ *          EG: 1000
+ *
+ * @param exponentialBackoffCoefficient {Number}
+ *          The value by which the retryTimeInMS increases with each retry.
+ *          The n'th retry (or the (n-1)th try) will have retryTimeInMS = retryTimeInMS*(exponentialBackoffCoefficient^n).
+ *          EG: 1.5, 2
+ *
+ * @param successCallback {Function}
+ *          The callback that is called in the case of response success.
+ *          The function will be called with the first parameter being the jsonp response object.
+ *          EG: function(response) {console.log("Response:", response);}
+ *
+ * @param failureCallback {Function} {optional}
+ *          The callback that is called in the case of response failure after maximumTryCount tries.
+ *          The function will be called with no parameters.
+ *          EG: function() {alert("No response!");}
+ *
+ * @return Does not return anything.
+ */
+var callService = function(endpoint, params, maximumTryCount, retryTimeInMS, exponentialBackoffCoefficient, successCallback, failureCallback) {
+    var callbackName = 'serviceCallback';
+    var numTries = 0;
+    params["JSONCallBack"] = callbackName;
+    
+    if(typeof ClientMetrics !== 'undefined') {
+        ClientMetrics.startTimer(ClientMetrics.events.AAN_TIME);
+    }
+    
+    window[callbackName] = function(jsonResponseObj) {
+        if(typeof jsonResponseObj !== 'undefined' && typeof jsonResponseObj.error !== 'undefined') {
+            // If the response contains an error object we should retry in-case of a race condition.
+            return;
+        }
+        // When the response is received, make sure the request isn't made again.
+        // This can happen when the first response returns slowly, after the another retry attempt has been made.
+        maximumTryCount = -1;
+        // If the second response comes after the first response, make sure the callback doesn't occur twice.
+        failureCallback = window[callbackName] = DO_NOTHING;
+        
+        if(typeof ClientMetrics !== 'undefined') {
+            ClientMetrics.endTimer(ClientMetrics.events.AAN_TIME);
+            ClientMetrics.logEvent(ClientMetrics.events.NUM_AAN_CALLS, numTries);
+        }
+        
+        successCallback(jsonResponseObj);
+    };
+    
+    (function request() {
+        if (maximumTryCount > 0) {
+            var callScript = document.createElement('script');
+            callScript.src = '//' + endpoint + '?' + getQueryString(params);
+            document.body.appendChild(callScript);
+            maximumTryCount--;
+            numTries++;
+            setTimeout(request, retryTimeInMS);
+            // Exponentially back-off the retries.
+            retryTimeInMS *= exponentialBackoffCoefficient;
+        }
+        // If maximumTryCount has been decremented to 0, and no response has happened, and failureCallback exists, then call the failure callback.
+        // If the response has been recieved, maximumTryCount will be -1, which converts to true, so !(-1) is false.
+        else if (!maximumTryCount && failureCallback) {
+            failureCallback();
+            if(typeof ClientMetrics !== 'undefined') {
+                ClientMetrics.addMetric(ClientMetrics.events.FINAL_STATE, 'aanFail');
+                ClientMetrics.addMetric(ClientMetrics.events.NUM_AAN_CALLS, numTries);
+                ClientMetrics.flushMetrics();
+            }
+        }
+    })();
+};
+
+/**
+ * This method will truncate text within an html element by iteratively removing
+ * its last word until its container fits within a maxHeight specified. inputs:
+ * $text - the element that contains the text to be truncated $container - the
+ * element that contains the text element maxHeight - the maximum height that we
+ * will allow the $container element to obtain
+ * 
+ * Returns a boolean which states whether or not it was possible to reduce the size
+ * and fit $container within maxHeight
+ */
+var truncateText = function($text, $container, maxHeight) {
+    var text = $text.innerHTML;
+    var truncatedText;
+    var bestText = text;
+    if ($container.offsetHeight > maxHeight) {
+        while ($container.offsetHeight > maxHeight) {
+            var offsetHeight = $container.offsetHeight;
+            //Remove one word and surrounding whitespace
+            truncatedText = text.replace(/\s+\S+\s*$/, '');
+            //If we can't get shorter, then exit loop
+            if (truncatedText.length == text.length) break;
+            text = truncatedText;
+            $text.innerHTML = text + '...';
+            if ($container.offsetHeight < offsetHeight) {
+                // we managed to reduce the height, so this is our best
+                // option so far
+                bestText = $text.innerHTML;
+            }
+        }
+    }
+    $text.innerHTML = bestText;
+    return $container.offsetHeight <= maxHeight;
+};
+
+
+/**
+ *  If IE documentMode is less than 8, z-index based setup of full-background click target
+ *  and overlaid interactive elements is broken. This function is a fallback for that case
+ */
+function setupIEBackgroundClick($ad, $link) {
+    var isIE = (navigator.appName === 'Microsoft Internet Explorer');
+    var clickTargetClassName = 'click-target';
+    
+    function regexEscape(s) {
+        return s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    };
+
+    clickTargetClassName = regexEscape(clickTargetClassName);
+
+    // className must be regex escaped
+    function elementHasClass(e, className) {
+        if (!e || !e.className || e.className === "") {
+            return false;
+        }
+        var classNameRegex = new RegExp('\\s' + className + '\\s');
+        if ((' ' + e.className + ' ').match(classNameRegex)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function selfOrAncestorClickTarget(ele) {
+        var current = ele;
+
+        while (current.nodeName && current.nodeName !== "BODY") {
+            if (elementHasClass(current, clickTargetClassName) || current === $link) {
+                return current;
+            }
+            current = current.parentElement;
+        }
+
+        return null;
+    }
+
+    if (isIE && document.documentMode < 8) {
+        $ad = $ad || document.getElementById('ad');
+        $link = $link || document.getElementById('link');
+        var linkHref = $link.href;
+        var linkTarget = $link.target;
+
+        var linkWidth = 245;
+        var linkHeight = 250;
+
+            linkHeight = 142;
+
+        $link.style.height = linkHeight + 'px';
+        $link.style.width = linkWidth + 'px';
+
+        // register click target
+        $ad.onclick = function () {
+            if (selfOrAncestorClickTarget(window.event.srcElement)) {
+                return true;
+            } else {
+                window.open(linkHref, linkTarget);
+            }
+        };
+        $ad.style.cursor = "pointer";
+    }
+}
+
+// Expand slot size for 300x600 ads, but not when previewing in Shazam
+var expandSlot = function () {
+}
+
+// copied from Shazam/static/js/application/views/components/aap.js
+var fullLogoPaths = {
+    'blackOrangeLogo': 'da/creatives/logo_orangeblack._V390083514_.png',
+    'blackLogo': 'da/creatives/logo_black._V390083509_.png',
+    'whiteOrangeLogo': 'da/creatives/logo_orangewhite._V390083509_.png',
+    'whiteLogo': 'da/creatives/logo_white._V390083514_.png'
+}
+
+var smallLogoPaths = {
+    'blackOrangeLogo': 'da/creatives/small_logo_orangeblack._V368061135_.png',
+    'blackLogo': 'da/creatives/small_logo_black._V368061135_.png',
+    'whiteOrangeLogo': 'da/creatives/small_logo_orangewhite._V368061134_.png',
+    'whiteLogo': 'da/creatives/small_logo_white._V368061135_.png'
+}
+
+var getAapLogoPath = function (logoType, small) {
+    if (small) {
+        return smallLogoPaths[logoType];
+    } else {
+        return fullLogoPaths[logoType];
+    }
+};
+
+
+
+var BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE = 'adBackgroundClick';
+var TITLE_CLICK_TRAFFIC_EVENT_TYPE = 'adTitleClick';
+var ATC_CLICK_TRAFFIC_EVENT_TYPE = 'addToCartClick';
+var SHOP_NOW_CLICK_TRAFFIC_EVENT_TYPE = 'shopNowClick';
+var PREORDER_CLICK_TRAFFIC_EVENT_TYPE = 'preorderClick';
+var CLIP_COUPON_CLICK_TRAFFIC_EVENT_TYPE = 'clipCouponClick';
+var MORE_INFO_CLICK_TRAFFIC_EVENT_TYPE = 'moreInfoClick';
+var READ_ALL_REVIEWS_CLICK_TRAFFIC_EVENT_TYPE = 'readAllReviewsClick';
+var PRIMARY_CTA_CLICK_TRAFFIC_EVENT_TYPE = 'primaryCtaClick';
+var ALTCTA_CLICK_TRAFFIC_EVENT_TYPE = 'altCtaClick';
+var LEARN_MORE_TRAFFIC_EVENT_TYPE = 'learnMore';
+var ADD_TO_WISHLIST_TRAFFIC_EVENT_TYPE = 'addToWishlistClick';
+var SNS_CLICK_TRAFFIC_EVENT_TYPE = 'subscribeAndSaveClick';
+
+// Internal Metrics Clicks
+var CLOSE_MODAL_EVENT_TYPE = 'closeModalClick';
+
+// Store all valid click events in an array for validation
+var VALID_EVENTS = [
+    BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE,
+    TITLE_CLICK_TRAFFIC_EVENT_TYPE,
+    ATC_CLICK_TRAFFIC_EVENT_TYPE,
+    SHOP_NOW_CLICK_TRAFFIC_EVENT_TYPE,
+    PREORDER_CLICK_TRAFFIC_EVENT_TYPE,
+    CLIP_COUPON_CLICK_TRAFFIC_EVENT_TYPE,
+    MORE_INFO_CLICK_TRAFFIC_EVENT_TYPE,
+    READ_ALL_REVIEWS_CLICK_TRAFFIC_EVENT_TYPE,
+    PRIMARY_CTA_CLICK_TRAFFIC_EVENT_TYPE,
+    ALTCTA_CLICK_TRAFFIC_EVENT_TYPE,
+    LEARN_MORE_TRAFFIC_EVENT_TYPE,
+    ADD_TO_WISHLIST_TRAFFIC_EVENT_TYPE,
+    CLOSE_MODAL_EVENT_TYPE,
+    SNS_CLICK_TRAFFIC_EVENT_TYPE
+];
+
+var SIS_PROTOCOL = 'ANY';
+var SIS_BASE_URL = (SIS_PROTOCOL === 'ANY' ? location.protocol : SIS_PROTOCOL) + '//s.amazon-adsystem.com';
+
+    var THIRD_PARTY_TRACKER = '${ThirdPartyTracker!}'; // The Cornerstone Freemarker template will populate this.
+
+
+
+var adId = '{%ad_cfid}';
+var creativeId = '{%creative_cfid}';
+var adServer = 'pda';
+var impressionId = '${r"${request.arid}"}'; // Ad Request ID
+
+
+
+
+
+var isValidEvent = function(eventType) {
+    // Cannot use Array.prototype.indexOf because it doesn't exist in IE quirks mode.
+    for (var i = 0; i < VALID_EVENTS.length; i++) {
+        if (VALID_EVENTS[i] === eventType) {
+            return true;
+        }
+    }
+    return false;
+};
+
+/**
+ * Form SIS/Forester click tracker URL. Returns a pixel if redirect is null.
+ * @method getClickTracker
+ * @return returns tracking url
+ */
+var getClickTracker = function(eventType, redirectURL, signature) {
+    // Validate the eventType
+
+    // Inject AAP/ESS ref-tag for offsite OPS attribution
+    if (typeof UrlUtils === 'undefined') {
+
+    /**
+     * @public
+     * @type {module}
+     */
+    window.UrlUtils = {
+        // Shazam Renderer helper that detects
+        // if a URL has a ref-tag in it
+        /** @type {function} */
+        hasRefTag: function (uri)
+{
+    return /[\/&?]\s*ref_?=/.test(uri);
+},
+
+        // Shazam Renderer helper that detects
+        // if a URL is on the Amazon domain
+        /** @type {function} */
+        isAmazonUri: function (uri)
+{
+    // Firstly skip the scheme of a uri (Ref: https://tools.ietf.org/html/rfc3986#section-3.1)
+    var uriWithoutScheme = uri.replace(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//, "");
+    // this splits the given uri by '/', '?', '#', ':' character, ignoring empty strings.
+    var uriComponents = uriWithoutScheme.split(/[\/?#:]/).filter(function(el) { return el.length != 0; });
+
+    // if no first elements are left after the skip above, fail the check.
+    if (!uriComponents[0]) {
+        return false;
+    }
+    return /amazon[.]([a-zA-Z]+$|[a-zA-Z]+.[a-zA-Z]+$)/.test(uriComponents[0]);
+},
+
+        // Injects QueryString parameter in a given URL
+        injectQueryStringParam: function(url, queryParamKey, queryParamVal) {
+            if (!queryParamKey || !queryParamVal) {
+                return url;
+            }
+
+            var queryParam = '?' + queryParamKey + '=' + queryParamVal;
+            var fragmentUrlIndex = url.indexOf('#');
+            var queryStringUrlIndex = url.indexOf('?');
+            var hasFragment = fragmentUrlIndex >= 0;
+            var hasQueryString = queryStringUrlIndex >= 0;
+
+            // Check to make sure querystring is before fragment
+            // as per: https://tools.ietf.org/html/rfc3986#section-3
+            if (hasFragment && hasQueryString) {
+                hasQueryString = queryStringUrlIndex < fragmentUrlIndex;
+            }
+
+            // If no querystring or fragment detected
+            // no replacements are required
+            if (!hasQueryString && !hasFragment) {
+                return url + queryParam;
+            }
+
+            // Continue to inject query param if 
+            // a querystring or fragment is detected.
+            var queryDelimiter = hasQueryString ? '?' : '#';
+            var urlParts = url.split(queryDelimiter);
+            var urlRest = urlParts.slice(1).join(queryDelimiter);
+
+            if (hasQueryString) {
+                queryDelimiter = '&';
+            }
+
+            var urlWithInjectedQueryParam = urlParts[0] + queryParam;
+            if (urlRest) {
+                urlWithInjectedQueryParam += queryDelimiter + urlRest;
+            }
+
+            return urlWithInjectedQueryParam;
+        },
+
+        // Injects AAP ref-tag to measure OPS impact of off-site AAP bidding
+        // Ref-tag is injected if:
+        // 1. URL doesn't have a ref-tag already in it
+        // 2. URL is linking to an Amazon page
+        // 3. Creative is running offsite
+        // 4. Advertiser is running paid AAP
+        injectAapRefTag: function(url) {
+            var isRequestOn3p = (typeof IS_3P !== 'undefined' && IS_3P);
+            var aapOpsRefTag = '';
+
+            if (!url || !(aapOpsRefTag && isRequestOn3p && this.isAmazonUri(url) && !this.hasRefTag(url))) {
+                return url;
+            }
+
+            return this.injectQueryStringParam(url, 'ref', aapOpsRefTag);
+        },
+
+        /**
+         * Produces unique token to allow the VPC team to identify 
+         * the source of the coupon clip and if the source is paid 
+         * Advertising, no clip-fee will be applied thereby ensuring
+         * that the paid Ad campaign doesn't negatively impact the 
+         * Coupon budget.
+         * 
+         * The token is produced as follows:
+         *   base64-encoding of "<click-timestamp>;<source-id>"
+         *
+         * JIRA: https://ad-jira.amazon.com/browse/TH-470
+         * 
+         * @return {String}
+         */
+        getCouponToken: function() {
+            return btoa(new Date().getTime() + ";AMG");
+        },
+
+        /**
+         * Macro used to replace with actual token
+         * for waiving VPC clipping fee at click-time
+         *
+         * JIRA: https://ad-jira.amazon.com/browse/TH-470
+         * 
+         * @constant
+         * @return {[type]} [description] 
+         */
+        getCouponTokenMacro: function() {
+            return "VPC_CS_TOKEN_MACRO";
+        }
+    };
+}
+
+    redirectURL = UrlUtils.injectAapRefTag(redirectURL);
+
+    var foresterArgs = {
+        i: impressionId,
+        e: eventType,
+        a: adId,
+        c: creativeId,
+        s: adServer
+    };
+
+    var query = {
+        d: 'forester-did',
+        'ex-fargs': encodeURIComponent('?' + getQueryString(foresterArgs)),
+        'ex-fch': 416719,
+        rd: (redirectURL ? encodeURIComponent(redirectURL) : ''),
+        cb: new Date().getTime()
+    };
+    
+    // SIS Signature support
+    if(redirectURL && signature) { 
+        query.sig=signature;
+    }
+
+   /*
+    * Apply ref tag in the redirect url if it is available. Embed ref tag inside the URL itself using '/ref='.
+    * e.g. http://www.amazon.de/b/ref=myRefTag?ie=UTF8&node=365206031.
+    */
+    var refTag = '';
+    var associateTag = '';
+
+    var questionMark = '%3F';
+    var ampersand = '%26';
+    var slash = '%2F';
+    var equalSign = '%3D';
+
+    var refTagString = 'ref' + equalSign + refTag;
+    var associateTagString = 'tag' + equalSign + associateTag;
+
+    if (refTag && refTag !== '' && query.rd) {
+        if (query.rd.indexOf(questionMark) != -1) {
+            query.rd = query.rd.replace(new RegExp(questionMark), slash + refTagString + questionMark + (associateTag ? associateTagString + ampersand : ''));
+        } else {
+            query.rd = query.rd + slash + refTagString + (associateTag ? questionMark + associateTagString : '');
+        }
+    }
+
+    var trackingURL = SIS_BASE_URL  + (redirectURL ? '/click' : '/iui3') + '?' + getQueryString(query);
+
+    // Don't append the AAX click tracker -- it's breaking stuff on Yahoo.
+    // Instead we'll fire the AAX tracker asynchronously using the
+    // attachAsyncAaxTracker function defined below.
+    //
+    // 
+    //     // AAX requires a special tracker to fire on
+    //     //   clicks to optimize delivery
+    //     var aaxTracker = '${r"${aaxClickTracker}"}';
+    //     if(redirectURL && aaxTracker) {
+    //         trackingURL = aaxTracker + trackingURL;
+    //     }
+    // 
+
+    return trackingURL;
+};
+
+/**
+ * Helper to set tracker as the HREF
+ * @method setTrackerHref
+ */
+var setTrackerHref = function(element, event, redirectURL, newWindow, signature) {
+    setHref(element, getClickTracker(event, redirectURL, signature), newWindow);
+};
+
+/**
+ * Add tracking in parallel to an A tag. Tracker must be provided.
+ */
+var addAsyncTracking = function(element, tracker, options) {
+    DADS.Analytics.track3PClickAsync(element, tracker, options);
+};
+
+
+
+/**
+ * Attach an async AAX tracker to an element. This is a no-op unless we are on
+ * desktop and the ad server is Cornerstone.
+ */
+var attachAsyncAaxTracker = function(element) {
+};
+
+
+
+
+
+var Util = (function(window, document, undefined) {
+var _ = {};
+
+var createRegEx = function(toFind) {
+    return new RegExp('(\\s|^)' + toFind + '(\\s|$)')
+};
+
+/**
+ * Stub method used to for doing
+ * nothing with good minification.
+ */
+_.DO_NOTHING = function(){};
+
+/**
+ * Checks the current url and finds whether it is secure or not.
+ * @method isSecure
+ * @return Returns true if protocol is secure, false otherwise.
+ */
+_.isSecure = function() {
+    return (/s/.test(location.protocol));
+};
+
+/**
+ * iterates over an array.
+ * @method forEach
+ * @param array {Array}
+ * @return Does not return anything - applies callback for each element of the array.
+ */
+_.forEach = function(array, callback) {
+    for (var index = 0, length = array.length; index < length; index++) {
+        callback(array[index], index, array);
+    }
+};
+
+/**
+ * Return an element with a given ID.
+ * @method getElementByID
+ * @param id {String}
+ * @return DOM Element with the given ID.
+ */
+_.getElementById = function(id) {
+    return document.getElementById(id);
+};
+
+/**
+ * Return true if inside an iframe
+ */
+_.inIframe = function inIframe() {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+};
+
+/**
+ * Return an array of elements with a given class.
+ * @method getElementsByClassName
+ * @param className {String}
+ * @return DOM Element array.
+ */
+_.getElementsByClassName = function(className) {
+    if (document.getElementsByClassName) {
+        return document.getElementsByClassName(className);
+    } else if (document.querySelectorAll) { // for IE 8
+        return document.querySelectorAll('.' + className);
+    } else  if (document.evaluate) {
+        var pattern = ".//*[contains(concat(' ', @class, ' '), ' " + className + " ')]";
+        var elements = document.evaluate(pattern, document, null, 0, null);
+        var result = [];
+        var i;
+        while(i = elements.iterateNext()) {
+            result.push(i);
+        }
+        return result;
+    } else { // Brute force fall back
+        var elements = document.getElementsByTagName("*");
+        var pattern = createRegEx(className);
+        var result = [];
+        for (var i = 0; i < elements.length; i++) {
+            if ( pattern.test(elements[i].className) ) {
+                result.push(elements[i]);
+            }
+        }
+        return result;
+    }
+};
+
+/**
+ * Returns a query string from a query object
+ * @method getQueryString
+ * @param  {Object} query
+ * @param  {Boolean} escapeResult
+ * @return {String} query string
+ */
+_.getQueryString = function(query, escapeResult) {
+    var queryStringParts = [];
+    for (var key in query) {
+        queryStringParts.push(key + '=' + query[key]);
+    }
+
+    var queryString = queryStringParts.join('&');
+    return escapeResult ? encodeURIComponent(queryString) : queryString;
+};
+
+/**
+ * Set the background image of a given element.
+ * @method setBackgroundImage
+ * @param element {Object} - DOM element for which background has be to set
+ * @param backgrounfImageUrl {String}
+ * @return Does not return anything - sets the background of the element.
+ */
+_.setBackgroundImage = function(element, backgroundImageUrl) {
+    element.style.backgroundImage = 'url(' + backgroundImageUrl + ')';
+};
+
+/**
+ * Set the href of a given element (and give it a target).
+ * @method setHref
+ * @param element {Object} - DOM element for which href and target have to be set
+ * @param href {String}
+ * @return Does not return anything - sets the href and target for the given element.
+ */
+_.setHref = function(element, href, newWindow) {
+    element.href = href;
+    element.target = newWindow ? "_blank" : "_top";
+};
+
+/**
+ * Checks if the element has a given class.
+ * @method hasClass
+ * @param elem {Object} - DOM element for which we are checking the class
+ * @param cls {String} - Name of the class
+ * @return returns Boolean.
+ */
+_.hasClass = function(elem, cls) {
+    return elem.className.match(createRegEx(cls));
+};
+
+/**
+ * Adds class to a given element.
+ * @method addClass
+ * @param elem {Object} - DOM element for which to add class
+ * @param cls {String} - Name of the class
+ * @return Does not return anything. Adds class to the given element.
+ */
+_.addClass = function(elem, cls) {
+    if (!_.hasClass(elem, cls))
+        elem.className += " " + cls;
+};
+
+/**
+ * Removes class of a given element.
+ * @method removeClass
+ * @param elem {Object} - DOM element for which to remove the class
+ * @param cls {String} - Name of the class
+ * @return Does not return anything. Removes class from the given element.
+ */
+_.removeClass = function(elem, cls) {
+        // Older versions of the mobile ad sdk unescape regexes, so this is to support those older versions
+        var classArray = elem.className.split(' '),
+            classIndex = classArray.indexOf(cls);
+        if (classIndex !== -1) {
+            classArray.splice(classIndex, 1);
+            elem.className = classArray.join(' ');
+        }
+};
+
+/**
+ * Show element.
+ * @method show
+ * @param elem {Object} - DOM element to be made visible
+ * @return Does not return anything. Makes element visible.
+ */
+_.show = function(elem) {
+    _.removeClass(elem, 'hide');
+};
+
+/**
+ * Hide element.
+ * @method hide
+ * @param elem {Object} - DOM element to hide
+ * @return Does not return anything. Hides the element.
+ */
+_.hide = function(elem) {
+    _.addClass(elem, 'hide');
+};
+
+/**
+ * Trims leading and trailing spaces of a text.
+ * Older versions of IE does not support String trim() function.
+ * @method trimText
+ * @return {String} Returns trimmed text.
+ */
+_.trim = function(text) {
+    return text.replace(/^\s+|\s+$/, '');
+};
+
+/**
+ * JS variable to determine if you are in a Shazam preview
+ */
+_.isShazamPreview = function() {
+        return false;
+};
+
+/**
+ * Perform a time-sensitive fade animation. Only one element can have the fade effect at one time.
+ * @method fadeElement
+ * @param element {Object} HTML element which will be faded in/out.
+ * @param isIn {Boolean} Determines the fade direction in or out.
+ * @param cb {Function} Callback function that will be called when animation ends.
+ * @param fadeDuration {Number} Speed of the fade animation in milliseconds.
+ * @return Does not return anything.
+ */
+
+_.fadeElement = function(element, isIn, cb, fadeDuration) {
+    element.style.visibility = 'visible';
+    var fadeStart = new Date();
+    fadeDuration = fadeDuration || 300;
+
+    var fadeIncrement = function() {
+        var opacity = Math.min(((new Date()) - fadeStart) / fadeDuration, 1);
+        if(!isIn){
+            opacity = 1 - opacity;
+        }
+        _.setOpacity(element, opacity);
+
+        if ((isIn && opacity < 1) || (!isIn && opacity > 0)) {
+            setTimeout(fadeIncrement, 25);
+        } else {
+            // Clean filter, otherwise, IE 6/7/8 displays the background of the ad.
+            element.style.filter = '';
+            if (typeof cb == 'function') { cb(); }
+        }
+    };
+
+    fadeIncrement();
+};
+
+/**
+ * Set the opacity of a given element.
+ * @method setOpacity
+ * @param element {Object} - DOM element for which opacity has be to set
+ * @param opacity {Number}
+ * @return Does not return anything - sets the opacity of the element.
+ */
+_.setOpacity = function(element, opacity) {
+    var style = element.style;
+    style.display = 'block';
+    style.opacity = style.mozOpacity = opacity;
+    style.filter = 'alpha(opacity=' + (opacity * 100) + ')';
+};
+
+
+/**
+ * Helper method for converting hex codes to characters
+ * This is needed because older versions of Android SDK
+ * will replace backslashes and mess up regex.
+ * https://tt.amazon.com/0059324860
+ */
+_.hexToChar = function(hexValue) {
+    //force conversion
+    var hex = hexValue.toString();
+    var str = '';
+    for (var i = 0; i < hex.length; i += 2) {
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+    }
+    return str;
+};
+
+/**
+ * Replace line breaks in a string with HTML breaks
+ * @method replaceLineBreaks
+ * @param text {string} - String that contains line breaks
+ * @return String with replacement done
+ */
+_.replaceLineBreaks = function(text) {
+    // Android SDK versions older than 5.3 replaces all '\n' with an empty string
+    // https://tt.amazon.com/0056328459
+    // 5c is hex for \, 6e is hex for n
+    var pattern = new RegExp(_.hexToChar('5c6e'), 'g');
+    if (typeof text === 'string') {
+        return text.replace(pattern, '<br/>');
+    }
+};
+
+/**
+ * Makes a call to the provided endpoint with exponential backoff retry.
+ * If the service call times out, a retry will be attempted until the
+ * maximum number of times of requests is reached.
+ * @method callAan
+ *
+ * @param params {Object}
+ *          The argument-value pairs that are passed to the service.
+ *          This should be a flat JSON object, which is converted to a key-value list string
+ *          that is preceded by the '?' character in the URI.
+ *          EG: {Operation:"ping"} -> Operation=ping
+ *          or: {"Operation":"getElementById","id":"1000"} -> Operation=getElementById&id=1000
+ *
+ * @param successCallback {Function}
+ *          The callback that is called in the case of response success.
+ *          The function will be called with the first parameter being the jsonp response object.
+ *          EG: function(response) {console.log("Response:", response);}
+ *
+ * @param failureCallback {Function} {optional}
+ *          The callback that is called in the case of response failure after maximumTryCount tries.
+ *          The function will be called with no parameters.
+ *          EG: function() {alert("No response!");}
+ *
+ * @return Does not return anything.
+ */
+_.callAan = function(params, successCallback, failureCallback) {
+    var callbackName = 'daAanCallback';
+    params["JSONCallBack"] = callbackName;
+
+    var numTries = 0,
+    maximumTries = 2,
+    retryTimeInMS = 1500,
+    success = false;
+
+    if(typeof ClientMetrics !== 'undefined') {
+        ClientMetrics.startTimer(ClientMetrics.events.AAN_TIME);
+    }
+
+    window[callbackName] = function(jsonResponseObj) {
+        success = true;
+        // Clear out callbacks
+        failureCallback = window[callbackName] = _.DO_NOTHING;
+
+        if(typeof ClientMetrics !== 'undefined') {
+            ClientMetrics.endTimer(ClientMetrics.events.AAN_TIME);
+            ClientMetrics.logEvent(ClientMetrics.events.NUM_AAN_CALLS, numTries);
+        }
+
+        successCallback(jsonResponseObj);
+    };
+
+    var request = function() {
+        if (!success && numTries < maximumTries) {
+            var callScript = document.createElement('script');
+            callScript.src = 'https://d3l3lkinz3f56t.cloudfront.net/aan/us?' + _.getQueryString(params);
+            document.body.appendChild(callScript);
+            numTries++;
+            setTimeout(request, retryTimeInMS);
+        } else if(!success && typeof failureCallback == 'function') {
+            failureCallback();
+            if(typeof ClientMetrics !== 'undefined') {
+                ClientMetrics.addMetric(ClientMetrics.events.FINAL_STATE, 'aanFail');
+                ClientMetrics.addMetric(ClientMetrics.events.NUM_AAN_CALLS, numTries);
+                ClientMetrics.flushMetrics();
+            }
+        }
+    };
+    request();
+};
+
+/**
+ * Form SIS/Forester click tracker URL. Returns a pixel if redirect is null.
+ * @method getTracker
+ * @return returns tracking url
+ */
+var SIS_BASE_URL = '//s.amazon-adsystem.com';
+_.getTracker = function(eventType, redirectURL, signature) {
+    // Validate the eventType
+
+    // Inject AAP/ESS ref-tag for offsite OPS attribution
+    if (typeof UrlUtils === 'undefined') {
+
+    /**
+     * @public
+     * @type {module}
+     */
+    window.UrlUtils = {
+        // Shazam Renderer helper that detects
+        // if a URL has a ref-tag in it
+        /** @type {function} */
+        hasRefTag: function (uri)
+{
+    return /[\/&?]\s*ref_?=/.test(uri);
+},
+
+        // Shazam Renderer helper that detects
+        // if a URL is on the Amazon domain
+        /** @type {function} */
+        isAmazonUri: function (uri)
+{
+    // Firstly skip the scheme of a uri (Ref: https://tools.ietf.org/html/rfc3986#section-3.1)
+    var uriWithoutScheme = uri.replace(/^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//, "");
+    // this splits the given uri by '/', '?', '#', ':' character, ignoring empty strings.
+    var uriComponents = uriWithoutScheme.split(/[\/?#:]/).filter(function(el) { return el.length != 0; });
+
+    // if no first elements are left after the skip above, fail the check.
+    if (!uriComponents[0]) {
+        return false;
+    }
+    return /amazon[.]([a-zA-Z]+$|[a-zA-Z]+.[a-zA-Z]+$)/.test(uriComponents[0]);
+},
+
+        // Injects QueryString parameter in a given URL
+        injectQueryStringParam: function(url, queryParamKey, queryParamVal) {
+            if (!queryParamKey || !queryParamVal) {
+                return url;
+            }
+
+            var queryParam = '?' + queryParamKey + '=' + queryParamVal;
+            var fragmentUrlIndex = url.indexOf('#');
+            var queryStringUrlIndex = url.indexOf('?');
+            var hasFragment = fragmentUrlIndex >= 0;
+            var hasQueryString = queryStringUrlIndex >= 0;
+
+            // Check to make sure querystring is before fragment
+            // as per: https://tools.ietf.org/html/rfc3986#section-3
+            if (hasFragment && hasQueryString) {
+                hasQueryString = queryStringUrlIndex < fragmentUrlIndex;
+            }
+
+            // If no querystring or fragment detected
+            // no replacements are required
+            if (!hasQueryString && !hasFragment) {
+                return url + queryParam;
+            }
+
+            // Continue to inject query param if 
+            // a querystring or fragment is detected.
+            var queryDelimiter = hasQueryString ? '?' : '#';
+            var urlParts = url.split(queryDelimiter);
+            var urlRest = urlParts.slice(1).join(queryDelimiter);
+
+            if (hasQueryString) {
+                queryDelimiter = '&';
+            }
+
+            var urlWithInjectedQueryParam = urlParts[0] + queryParam;
+            if (urlRest) {
+                urlWithInjectedQueryParam += queryDelimiter + urlRest;
+            }
+
+            return urlWithInjectedQueryParam;
+        },
+
+        // Injects AAP ref-tag to measure OPS impact of off-site AAP bidding
+        // Ref-tag is injected if:
+        // 1. URL doesn't have a ref-tag already in it
+        // 2. URL is linking to an Amazon page
+        // 3. Creative is running offsite
+        // 4. Advertiser is running paid AAP
+        injectAapRefTag: function(url) {
+            var isRequestOn3p = (typeof IS_3P !== 'undefined' && IS_3P);
+            var aapOpsRefTag = '';
+
+            if (!url || !(aapOpsRefTag && isRequestOn3p && this.isAmazonUri(url) && !this.hasRefTag(url))) {
+                return url;
+            }
+
+            return this.injectQueryStringParam(url, 'ref', aapOpsRefTag);
+        },
+
+        /**
+         * Produces unique token to allow the VPC team to identify 
+         * the source of the coupon clip and if the source is paid 
+         * Advertising, no clip-fee will be applied thereby ensuring
+         * that the paid Ad campaign doesn't negatively impact the 
+         * Coupon budget.
+         * 
+         * The token is produced as follows:
+         *   base64-encoding of "<click-timestamp>;<source-id>"
+         *
+         * JIRA: https://ad-jira.amazon.com/browse/TH-470
+         * 
+         * @return {String}
+         */
+        getCouponToken: function() {
+            return btoa(new Date().getTime() + ";AMG");
+        },
+
+        /**
+         * Macro used to replace with actual token
+         * for waiving VPC clipping fee at click-time
+         *
+         * JIRA: https://ad-jira.amazon.com/browse/TH-470
+         * 
+         * @constant
+         * @return {[type]} [description] 
+         */
+        getCouponTokenMacro: function() {
+            return "VPC_CS_TOKEN_MACRO";
+        }
+    };
+}
+
+    redirectURL = UrlUtils.injectAapRefTag(redirectURL);
+
+        return redirectURL;
+};
+
+/**
+ * Attach an async AAX tracker to an element. This is a no-op unless we are on
+ * desktop and the ad server is Cornerstone.
+ */
+_.attachAsyncAaxTracker = function(element) {
+};
+
+/**
+ * Helper to set tracker as the HREF
+ * @method setTrackerHref
+ */
+_.setTrackerHref = function(element, event, redirectURL, newWindow, signature) {
+    _.setHref(element, _.getTracker(event, redirectURL, signature), newWindow);
+};
+
+/**
+ * Add tracking in parallel to an A tag.
+ * if tracker is left off, defaults to the 3pClickTracker
+ */
+_.addAsyncTracking = function(element, tracker, options) {
+    if ( typeof tracker !== 'string' ) tracker = AdContext.get3pClickTracker();
+    DADS.Analytics.track3PClickAsync(element, tracker, options);
+}
+
+_.getAsins = function() {
+    return [["B01GL8IT7K"]][0] || [];
+};
+
+_.getMediaUrl = function(relativeLocation) {
+    var url = 'https://images-na.ssl-images-amazon.com/images/G/01/';
+    if(typeof relativeLocation === 'string') { url += relativeLocation }
+    return url;
+}
+
+// Based on LOCALES as applied in CreativeModel.getRenderingContext
+var CURRENCY_SYMBOL = '$';
+var DECIMAL_SEPARATOR = '.';
+var GROUP_SEPARATOR = ',';
+_.formatCurrency = function(number) {
+    // If `number` is a string, it will be converted to a number by
+    // the operation `* 1` then stored into `num` as a string.
+    var previous = (number * 1).toFixed(2);
+    var current = CURRENCY_SYMBOL + previous.replace('.', DECIMAL_SEPARATOR);
+    while (current != previous) {
+        previous = current;
+        current = previous.replace(/(\d)(\d{3}\D)/, "$1" + GROUP_SEPARATOR + "$2");
+    }
+    return current;
+};
+
+/**
+ * This method will truncate text within an html element by iteratively removing
+ * its last word until its container fits within a maxHeight specified. inputs:
+ * $text - the element that contains the text to be truncated
+ * $container - the element that contains the text element
+ * maxHeight - the maximum height that we will allow the $container element to obtain
+ *
+ * Returns a boolean which states whether or not it was possible to reduce the size
+ * and fit $container within maxHeight
+ */
+_.truncateText = function($text, $container, maxHeight) {
+   var text = $text.innerHTML;
+   var truncatedText;
+   var bestText = text;
+   if ($container.offsetHeight > maxHeight) {
+       while ($container.offsetHeight > maxHeight) {
+           var offsetHeight = $container.offsetHeight;
+           //Remove one word and surrounding whitespace
+           truncatedText = text.replace(/\s+\S+\s*$/, '');
+           //If we can't get shorter, then exit loop
+           if (truncatedText.length == text.length) break;
+           text = truncatedText;
+           $text.innerHTML = text + '...';
+           if ($container.offsetHeight < offsetHeight) {
+               // we managed to reduce the height, so this is our best
+                // option so far
+               bestText = $text.innerHTML;
+           }
+       }
+   }
+   $text.innerHTML = bestText;
+   return $container.offsetHeight <= maxHeight;
+};
+
+/**
+ * Helper to validate the asin
+ * @method isValidAsin
+ * @param asin {String} - the asin to check for validity
+ * @return returns true if asin is valid
+ */
+_.isValidAsin = function(asin) {
+    if(!asin || !/^\w{10}$/.test(asin)) {
+        return false;
+    }
+    return true;
+}
+
+/**
+ * This method will return link for adding the products to the user's cart
+ * @method getAtcLink
+ * @param domain {String} - the base url to append the query parameters to
+ * @param products {Array} - list of products from which to extract product information
+ *
+ * @return returns a url for adding products to the cart
+ */
+_.getAtcLink = function(domain, products) {
+
+    var atcUrl = domain + 'gp/product-ads/shared/utility/add-to-cart.html?';
+    var queryParams = {
+        ie:'UTF8'
+    };
+    for (var i = 0; i < products.length; i++) {
+        var p = products[i];
+        var suffix = i ? '.' + i : '';
+        queryParams['token'+suffix] = p.token;
+        queryParams['time'+suffix] = p.time;
+        queryParams['merchantId'+suffix] = p.merchantId;
+        queryParams['asin'+suffix] = p.asin;
+        queryParams['program'+suffix] = 'dads';
+        // Must have 2 decimal places to match the token.
+        queryParams['adPrice'+suffix] = p.buyingPrice.toFixed(2);
+    }
+    atcUrl += _.getQueryString(queryParams);
+    return atcUrl
+};
+
+/**
+ * Attach an event listener to an element
+ * @method bindEvent
+ * @param element {Object} - DOM element
+ * @param event {String} - Event to bind to
+ * @param listener {Function} - Listener to bind
+ * @return Does not return anything.
+ */
+_.bindEvent = function(element, eventName, listener) {
+    if(element) {
+        // Cross-browser event listener
+        var eventListener = function(e) {
+            // Cross-browser event
+            e = e || window.event;
+
+            // Cross-browser event.preventDefault
+            e.preventDefault = e.preventDefault || function() {
+                e.returnValue = false;
+            };
+
+            // Cross-browser event.target
+            e.target = e.target || e.srcElement;
+
+            // Cross-browser event.stopPropagation
+            e.stopPropagation = e.stopPropagation || function() {
+                e.cancelBubble = true;
+            };
+
+            // Cross-browser event.which
+            if (!e.which) {
+                var buttonType = e.button;
+                if (buttonType !== 1) {
+                    if (buttonType === 2) {
+                        buttonType = 3;
+                    } else if (buttonType === 4) {
+                        buttonType = 2;
+                    } else {
+                        buttonType = 1;
+                    }
+                }
+
+                e.which = buttonType;
+            }
+
+            // Cross-browser event.x & event.y
+            // TODO: Confirm this functionality. In Spotlight Modal (IE8),
+            // e.x and e.clientX return different values because e.x is relative
+            // to the last positioned ancestor element.
+            if (!e.x) e.x = e.clientX;
+            if (!e.y) e.y = e.clientY;
+
+            // Run event-listener in next tick
+            return listener(e);
+        };
+
+        // Special Case: Window OnLoad
+        if (element === window && document.readyState == 'complete') {
+            return listener();
+        }
+
+        // Cross-browser add event listener
+        if (element.addEventListener) {
+            element.addEventListener(eventName, eventListener, !0);
+        } else {
+            eventName = 'on' + eventName;
+            if (element.attachEvent) {
+                element.attachEvent(eventName, eventListener);
+            } else {
+                element[eventName] = eventListener;
+            }
+        }
+    }
+};
+
+/**
+ * Provides Object.keys functionality
+ * @param {Object} obj
+ * @return {Array} keys
+ */
+_.keys = function(obj) {
+        var keys=[];
+        // iterate over object keys
+        for (key in obj)
+            // fill keys array with non-prototypical keys
+            key.hasOwnProperty.call(obj, key) && keys.push(key);
+        // return keys
+        return keys
+};
+
+
+/**
+ * Provides the TLD for a locale
+ * @param {String} locale
+ * @return {String} the tld
+ */
+_.getTLD = function(locale) {
+    var tldMap = {
+        'us'    : 'com',
+        'uk'    : 'co.uk',
+        'fr'    : 'fr',
+        'de'    : 'de',
+        'it'    : 'it'
+    }
+    return tldMap[locale.toLowerCase()];
+};
+
+
+/**
+ * Helper to use instead of indexOf to support IE8
+ * @param {Array} list
+ * @param {String | Number} elem
+ * @return {Boolean} if elem is in list or not
+ */
+_.contains = function(list, elem){
+    for(var i=0; i<list.length; i++){
+        if(list[i] === elem){return true}
+    }
+    return false;
+};
+
+
+/**
+ * Helper to determine if you are on an Android device
+ * @return {Boolean} if device is Android or not
+ */
+var _isAndroidDevice = /android/i.test(navigator.userAgent);
+_.isAndroidDevice = function() {
+    return _isAndroidDevice;
+};
+
+/**
+ * Helper to determine if you are on an iOS device
+ * @return {Boolean} if device is iOS or not
+ */
+var _isIosDevice = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+_.isIosDevice = function() {
+    return _isIosDevice;
+};
+
+_.mobile = (function () {
+    var ua;
+    if (typeof MSFClient !== 'undefined') {
+        ua = MSFClient.getUserAgentInfo();
+    } else {
+        ua = navigator.userAgent;
+    }
+    var androidVersion; // undefined to indicate not yet cached
+    var iOSVersion;
+    var appVersion;
+    var kindleGen;
+    var androidVersionRegex = /Android(?: |\/)([.\d]*)/i;
+    var iOSVersionRegex = /OS ([_\d]*) /i;
+    var appVersionRegex = /\"av\":\"([.\d]*)\"/i;
+
+    return {
+        /**
+         * Helper to determine if the Android OS is older than a certain version
+         * @return {Boolean} true if the Android OS version is older that the specified version
+         */
+        isAndroidOsOlderThan: function(version) {
+            var sequences = parseVersion(version, '.');
+            if (typeof androidVersion === 'undefined') {
+                androidVersion = ua.match(androidVersionRegex);
+                if (androidVersion !== null) {
+                    androidVersion = parseVersion(androidVersion[1], '.');
+                }
+            }
+            if (androidVersion) {
+                return isOlderThan(androidVersion, sequences);
+            }
+            return false;
+        },
+        /**
+         * Helper to determine if the iOS is older than a certain version
+         * @return {Boolean} true if the iOS version is older that the specified version
+         */
+        isIosOlderThan: function(version) {
+            var sequences = parseVersion(version, '.');
+            if (typeof iOSVersion === 'undefined') {
+                iOSVersion = ua.match(iOSVersionRegex);
+                if (iOSVersion !== null) {
+                    iOSVersion = parseVersion(iOSVersion[1], '_');
+                }
+            }
+            if (iOSVersion) {
+                return isOlderThan(iOSVersion, sequences);
+            }
+            return false;
+        },
+        /**
+         * Helper to determine if the iOS is older than a certain version
+         * @return {Boolean} true if the iOS version is older that the specified version
+         */
+        isAppOlderThan: function(version) {
+            var sequences = parseVersion(version, '.');
+            if (typeof appVersion === 'undefined') {
+                appVersion = decodeURIComponent(document.cookie).match(appVersionRegex);
+                if (appVersion !== null) {
+                    appVersion = parseVersion(appVersion[1], '.');
+                }
+            }
+            if (appVersion) {
+                return isOlderThan(appVersion, sequences);
+            }
+            return false;
+        },
+        /**
+         * Helper to return the generation of the Kindle device
+         * @return {Integer} returns the gen number of the Kindle, 0 if device has an incorrect Kindle userAgent
+         * For Kindle UA strings, see
+         * https://w.amazon.com/index.php/Advertising/D16G/Platform/Products/Targeting/UserAgentSegments#Device_Model
+         */
+        getKindleGen: function () {
+            if (typeof kindleGen === 'undefined') {
+                if (/Kindle Fire|KFOT|KFTT|KFJW/i.test(ua)) {
+                    kindleGen = 5;
+                } else if (/KFSO|KFTH|KFAP/i.test(ua)) {
+                    kindleGen = 6;
+                } else if (/KFAR|KFAS|KFSA|KFST/i.test(ua)) {
+                    kindleGen = 7;
+                } else if (/KFFO|KFTB|KFME/i.test(ua)) {
+                    kindleGen = 8;
+                } else {
+                    kindleGen = 0;
+                }
+            }
+            return kindleGen;
+        },
+        onMshop: function() {
+            return appVersionRegex.test(decodeURIComponent(document.cookie));
+        }
+    };
+})();
+
+/**
+ * versionString: string such as '1.0.0'
+ * separator: defaults to '.'
+ */
+var parseVersion = function (versionString, separator) {
+    separator = separator || '.';
+    var sequences = versionString.split(separator);
+    for (var i = 0; i < sequences.length; i++) {
+        sequences[i] = parseInt(sequences[i], 10) || 0;
+    }
+    return sequences;
+};
+
+/**
+ * arguments must be arrays specifying a sequence of version *numbers* (not strings)
+ * i.e. [1, 0, 3]
+ * NOT ['1', '0', '3']
+ */
+var isOlderThan = function(version, targetVersion) {
+    return version[0] < targetVersion[0] 
+        || (version[0] == targetVersion[0] && version[1] < targetVersion[1]) 
+        || (version[0] == targetVersion[0] && version[1] == targetVersion[1] && version[2] < targetVersion[2]);
+};
+
+/**
+ * Helper to determine if a url is a cascading intent
+ * @param {String} url
+ * @return {Boolean} if url is a cascading intent
+ */
+_.isCascadingIntent = function(url) {
+    return url.indexOf('amazonmobile://intent?intent=') == 0;
+};
+
+/**
+ * Helper to determine if you are on a Kindle device
+ * @return {Boolean} if device is a Kindle
+ */
+_.isKindle = function() {
+    return /Kindle Fire|KFOT|KFTT|KFJW|KFSO|KFTH|KFAP|KFAR|KFAS|KFSA|KFST|KFFO|KFTB|KFME/i.test(navigator.userAgent);
+};
+
+
+/**
+ * Determines if the current SDK version supports openInExternalBrowser()
+ * @return {Boolean} if SDK version is new enough to support openInExternalBrowser()
+ */
+_.doesSDKSupportOpenInExternalBrowser = function() {
+    try {
+        var versionString = amazon.getSDKVersion();
+    } catch(e) {
+        // old SDK versions won't have getSDKVersion() defined
+        return false;
+    }
+    // The SDKs are inconsistent... Android ouputs X.X.X and iOS outputs amznAdSDK-ios-X.X.X
+    if (Util.isAndroidDevice()) {
+        var sequences = parseVersion(versionString, '.');
+        // only v5.5.135 onwards supports openInExternalBrowser correctly
+        return sequences[0] > 5 || (sequences[0] == 5 && sequences[1] > 5) || (sequences[0] == 5 && sequences[1] == 5 && sequences[2] >= 135);
+    }
+    else {
+        var sdkVersion = versionString.split('-')[2];
+        var sequences = parseVersion(sdkVersion, '.');
+        // only v2.2.10 onwards supports openInExternalBrowser correctly
+        return sequences[0] > 2 || (sequences[0] == 2 && sequences[1] > 2) || (sequences[0] == 2 && sequences[1] == 2 && sequences[2] >= 10);
+    }
+};
+
+// Return the object
+return _;
+})(window, document);
+
+        function BuyBox() {
+    var buybox = this;
+    var shouldOpenInNewWindow =  (knownToBeOnThirdParty || knownToBeOnSubsidiary) ;
+
+    buybox.initialize = function() {
+        adReadyForBox = true;
+        if (adReadyForBox && aanResponseReceived) {
+            determineInStockStatus();
+            fadeElement($box, true);
+            recalculateStyles();
+
+            buyBoxBufferHeight = 6;
+            truncateTitle();
+
+        }
+    };
+    // Based on LOCALES as applied in CreativeModel.getRenderingContext
+    var DEFAULT_MERCHANT_ID = '';
+    var DEFAULT_MARKETPLACE_ID = 'ATVPDKIKX0DER';
+    var BASE_URL = 'https://www.amazon.com/';
+    var ADD_TO_CART_PURCHASE_PIPELINE = "addToCart"; // This static value is also defined in Decoration Service.
+
+    // From getRenderedCreative route
+    var AUTH_TOKEN = '9104EF5418BCB8B93E549B2BAEED6E6C25E57DFD';
+
+
+    var AAN_ENDPOINT = 'd3l3lkinz3f56t.cloudfront.net/aan/us';
+
+    // On CreativeModel, set from the form
+    var ASIN_SPRITE_URL = isSecure(location) ? 'https://images-na.ssl-images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg' : 'http://ecx.images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg';
+
+        var smallLogo = false;
+    var LOGO_PATH = getAapLogoPath('', smallLogo);
+    var LOGO_URL;
+    if (LOGO_PATH) {
+        LOGO_URL = MEDIA_URL + LOGO_PATH;
+    } else {
+        LOGO_URL = MEDIA_URL + '';
+    }
+
+    var DEFAULT_ASIN_IMAGE_URL = '';
+    var DEFAULT_ASIN_IMAGE_SECURE_URL = '';
+
+    var productList = [];
+    var buyBoxBufferHeight = 0;
+
+    // Set indicators to control loading
+    var aanResponseReceived = false;
+    var fallbackCalled = false;
+    var adReadyForBox = false;
+
+    // Cache Buy box related selectors
+    var $selector = getElementById('selector');
+    var $selectText = getElementById('selectText');
+    var $selectButton = getElementById('selectButton');
+    var $button = getElementById('button');
+    var $buttonText = getElementById('buttonText');
+    var $buttonContainer = getElementById('buttonContainer');
+    var $logo = getElementById('logo');
+    var $box = getElementById('box');
+    var $preorder = getElementById('preorder');
+    var $info = getElementById('info');
+    var $prices = getElementById('prices');
+    var $listPriceElement = getElementById('listPrice');
+    var $priceSpace = getElementById('priceSpace');
+    var $buyingPriceElement = getElementById('buyingPrice');
+    var $pricePerUnitElement = getElementById('pricePerUnit');
+    var $primeLogo = getElementById('primeLogo');
+    var $savings = getElementById('savings');
+    var $saveText = getElementById('saveText');
+    var $savingsContainer = getElementById('savingsContainer');
+    var $title = getElementById('title');
+    var $header = getElementById('headline');
+    var $disclaimer = getElementById('disclaimer');
+    var $aapInfo = getElementById('aapInfo');
+    var $moreInfo = getElementById('moreInfo');
+
+    // The click event type (e.g. "preorderClick", "addToCartClick")
+    var eventType;
+
+    
+
+    // AAP Case
+    var isAAP = knownToBeOnThirdParty || knownToBeOnSubsidiary;
+
+    if (isAAP) {
+        if ($logo) {
+            // Display the Amazon logo.
+            var logoStyle = $logo.style;
+            logoStyle.display = 'block';
+            if (navigator.userAgent.indexOf('MSIE 6') != -1) {
+                // png transparency does not work in IE6
+                LOGO_URL = LOGO_URL.replace(/png$/, 'gif');
+            }
+            logoStyle.backgroundImage = 'url(' + LOGO_URL + ')';
+
+        }
+    }
+
+    if ($aapInfo && knownToBeOnThirdParty) {
+        show($aapInfo);
+    }
+
+    var truncateTitle = function () {
+        if ($title.offsetHeight === 0) {
+            // title element not yet rendered
+            return;
+        }
+
+        var TITLE_LINE_ALLOWANCE = 16;
+        var titleLineLimit = 2;
+        // add a few pixels as buffer
+        var titleHeightLimit = TITLE_LINE_ALLOWANCE * titleLineLimit + 4;
+
+        // truncate title to max 2 lines
+        truncateText($title, $title, titleHeightLimit);
+
+        var doesFit = truncateText($title, $info, $box.offsetHeight + buyBoxBufferHeight);
+
+            if (!doesFit) {
+                hide(getElementById('ratingInfo'));
+            }
+    };
+
+    var adjustSingleButtonDE = function () {
+    }
+
+    /**
+     * Switches the button.
+     * @parameter state One of the following strings: 'addtocart',
+     * 'preorder', 'shopnow'. TODO: Make these enum-like.
+     */
+    var setPrimaryButtonState = function(state) {
+        // TODO: Don't use a magic string to represent "state"
+        // TODO: Put these in a translations.js helper?
+        
+        var addToCartButtonText= 'Add to Cart';
+
+        
+        var preorderButtonText= 'Pre-order';
+
+        
+        var shopNowButtonText= 'Shop now';
+
+        switch (state) {
+            case 'preorder':
+                addClass($box, 'po');
+                addClass($button, 'a-button-preorder');
+                removeClass($button, 'a-button-primary');
+                removeClass($button, 'shopNow');
+                eventType = PREORDER_CLICK_TRAFFIC_EVENT_TYPE;
+                $buttonText.innerHTML = preorderButtonText;
+                break;
+
+            case 'addtocart':
+                removeClass($box, 'po');
+                removeClass($button, 'a-button-preorder');
+                eventType = ATC_CLICK_TRAFFIC_EVENT_TYPE;
+                $buttonText.innerHTML = addToCartButtonText;
+                addClass($button, 'a-button-primary');
+                break;
+
+            case 'shopnow':
+                removeClass($button, 'a-button-preorder');
+                eventType = SHOP_NOW_CLICK_TRAFFIC_EVENT_TYPE;
+                addClass($button, 'a-button-primary');
+                addClass($box, 'fallback');
+                addClass($button, 'shopNow');
+                $buttonText.innerHTML = shopNowButtonText;
+                break;
+
+            default:
+                break;
+        }
+    };
+
+    // Product information added from the form, like the edited title
+    var userDefinedProductMetadata = {"B01GL8IT7K":{"title":"Heather Ann Creations Heirloom Collection Handcraf","label":"","properties":{"imageUrl":"http://ecx.images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg","imageSecureUrl":"https://images-na.ssl-images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg"}}};
+    var SPACE_CHARACTER = '&#x20;';
+
+    // The list of ASINs that come from the product
+    // picker, in the correct order
+    
+    var asins = ["B01GL8IT7K"];
+
+
+
+    var chooseProduct = function() {
+        var selectedIndex = Math.max(0, $selector.selectedIndex);
+        var selectedOption = $selector.options[selectedIndex];
+
+        // Before products come in, the asins array will have at least one element, so default to it.
+        var asin = selectedOption ? selectedOption.value : asins[0];
+
+        // "products" dictionary has products by ASIN.
+        var product = PRODUCT_INFO.asinMap[asin];
+        var title = userDefinedProductMetadata[product.asin].title;
+
+        // Set AUI select box text
+        $selectText.innerHTML = selectedOption.label || selectedOption.text;
+
+        // Get the original index of the ASIN, regardless of its order in the select box (so we know its sprite position).
+        var index = product.index;
+            var merchantId = null;
+
+        // Get pricing info.
+        var listPrice = product.listPrice;
+        var buyingPrice = product.buyingPrice;
+        var pricePerUnit = product.pricePerUnit;
+        var savings = (listPrice && buyingPrice) ? listPrice - buyingPrice : null;
+        var savingsPerc = (savings) ? 100 * savings / listPrice : null;
+
+        // Get preorder info.
+        var shouldPreorder = product.shouldPreorder;
+
+        var defaultRedirectUrl = THIRD_PARTY_TRACKER || ProductHelper.getDetailPageLink(asin, merchantId);
+
+            // Some products are not eligible for add to cart purchase pipeline. (e.g. digital items)
+            var canAddToCart = (product.purchasePipeline == ADD_TO_CART_PURCHASE_PIPELINE);
+
+        // Handle checkbox values
+        if (shouldPreorder) {
+            $preorder.innerHTML = ProductHelper.getPreorderText(product.preorderReleaseDate);
+            setPrimaryButtonState('preorder');
+        } else {
+            setPrimaryButtonState('addtocart');
+        }
+
+        //hide price boxes if the add-to-cart product's price that's about to be displayed is 0
+        var noPrice = buyingPrice == 0 && product.purchasePipeline == ADD_TO_CART_PURCHASE_PIPELINE;
+        var showPPU = false;
+
+        // Handle pricing information.
+        // If the product does not violate MAP and in stock, we show the prices when OOS simulation is turned off.
+        if (!product.violatesMap && product.inStock && !noPrice) {
+            // Format prices with currency symbols.
+                var formattedListPrice = formatCurrency(listPrice);
+                var formattedBuyingPrice = formatCurrency(buyingPrice);
+            $buyingPriceElement.innerHTML = SPACE_CHARACTER + formattedBuyingPrice + SPACE_CHARACTER;
+            //Show/hide prime logo
+            if (product.shippingPriceInformation && product.shippingPriceInformation.isEligiblePrimeShipping) {
+                setBackgroundImage($primeLogo, MEDIA_URL + "da/creatives/prime-2015-04.png");
+                $primeLogo.className = 'is-prime';
+                    show($primeLogo);
+            } else {
+                hide($primeLogo);
+            }
+
+                // Old versions of IE does not show the space character properly; therefore, we add margin.
+                if (navigator.userAgent.match('MSIE [6|7|8]')) {
+                    $listPriceElement.style.marginRight = '4px';
+                }
+                $listPriceElement.innerHTML = formattedListPrice;
+
+                // Show the list price if it's different from the buying price.
+                // Hide the list price if it is not US.
+                if (listPrice * 0.95 < buyingPrice) {
+                    hide($listPriceElement);
+                    hide($priceSpace);
+                } else {
+                    show($listPriceElement);
+                    show($priceSpace);
+                }
+
+                $savings.innerHTML = (savings) ? formatCurrency(savings) + ' (' + savingsPerc.toFixed(0) + '%)':'';
+
+                // Show the savings if significant
+                if (PRODUCT_INFO.inStock.length == 1 && savingsPerc >= 5) {
+                        hide($savingsContainer);
+                }
+
+            // If the product is not cartable, switch to unknown purchase pipeline state. Otherwise, display as ATC.
+            if (!canAddToCart) {
+                switchToUnknownPipelineState(defaultRedirectUrl);
+            } else {
+                removeClass($button, 'shopNow');
+                // Since we will not use 3p tracker in case of available ATC
+                // we will always redirect to atc script (and not use defaultRedirectUrl)
+                var atcRedirectUrl = ProductHelper.getAtcLink(product);
+
+                // Change the title of the product according to the selected asin.
+                setTrackerHref($button, eventType, atcRedirectUrl, shouldOpenInNewWindow);
+
+                // Set the real URL for the detail page and add to cart button.
+                // TODO: Think of an accessible way for this to work with screen readers (but without showing text when a seeing person hovers).
+                setTrackerHref($logo, BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE, defaultRedirectUrl, shouldOpenInNewWindow);
+                setTrackerHref($title, TITLE_CLICK_TRAFFIC_EVENT_TYPE, defaultRedirectUrl, shouldOpenInNewWindow);
+            }
+            //
+            // This must be done after the click tracker href is set due to a "feature" in IE<9 that
+            // sometimes changes the innerHTML when you set the href attribute.
+            //
+            $title.innerHTML = title;
+
+            removeClass($box, 'fallback');
+        } else {
+            // Clear the list and buy price.
+            $listPriceElement.innerHtml = '';
+            $buyingPriceElement.innerHtml = '';
+
+            fallback(title, defaultRedirectUrl);
+        }
+            if (product.customerReviewSummary) {
+
+                var $ratingInfo = getElementById('ratingInfo');
+                var $ratingCount = getElementById('ratingCount');
+                var $ratingStars = getElementById('ratingStars');
+                var roundedRating = (Math.round(product.customerReviewSummary.rating * 2) / 2).toFixed(1);
+
+                if(product.customerReviewSummary && product.customerReviewSummary.rating > 0) {
+                    show($ratingInfo);
+                    $ratingCount.innerHTML = formatNumber(product.customerReviewSummary.count, 0);
+                    $ratingStars.className = 'a-icon a-icon-star'; // remove the old s_star_ class
+                    var roundedRating = (Math.round(product.customerReviewSummary.rating * 2) / 2).toFixed(1);
+                    addClass($ratingStars, 'a-star-' + roundedRating.replace('.','-'));
+                    addClass($box, 'stars');
+                    setTrackerHref($ratingInfo, READ_ALL_REVIEWS_CLICK_TRAFFIC_EVENT_TYPE, ProductHelper.getReviewsLink(asin), shouldOpenInNewWindow);
+                } else {
+                    hide($ratingInfo);
+                    removeClass($box, 'stars');
+                }
+            }
+
+        if(typeof(buybox.productChanged) == "function") {
+            buybox.productChanged(index, product, defaultRedirectUrl);
+        }
+
+
+        /* ==== DE-specific overrides ==== */
+
+        /* ==== UK-specific overrides ==== */
+
+        recalculateStyles();
+        truncateTitle();
+
+    };
+
+    var fitWithPrice = function(elem) {
+        var pricesWidth = $prices.getBoundingClientRect().right - $prices.getBoundingClientRect().left;
+        var elemWidth = elem.getBoundingClientRect().right - elem.getBoundingClientRect().left;
+        var infoWidth = $info.getBoundingClientRect().right - $info.getBoundingClientRect().left;
+        return (pricesWidth + elemWidth) + 4 < infoWidth;
+    };
+
+    var recalculateStyles = function() {
+
+                if(!hasClass($buttonContainer, 'a-button-stack')){
+                    addClass($buttonContainer, 'a-button-stack');
+                }
+    }
+
+    /**
+     * Set action button image and other links on the creative to shop now state, which is the default of unknown purchase pipeline.
+     */
+    var switchToUnknownPipelineState = function(link) {
+        setPrimaryButtonState('shopnow');
+        setTrackerHref($button, SHOP_NOW_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+        setTrackerHref($logo, BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+        setTrackerHref($title, TITLE_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+    };
+
+
+
+
+
+// Based on LOCALES as applied in CreativeModel.getRenderingContext
+var CURRENCY_SYMBOL = '$';
+var DECIMAL_SEPARATOR = '.';
+var GROUP_SEPARATOR = ',';
+var LOCALE_MONTHS = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+/**
+ * Return a number as a locale-specific string.
+ * @method formatNumber
+ * @number {Number}
+ * @return returns formatted string.
+ */
+var formatNumber = function(number, decimalPlaces) {
+    // If `number` is a string, it will be converted to a number by `* 1`.
+    // Split integer and fractional part for formatting.
+    var parts = (number * 1).toFixed(decimalPlaces).split('.');
+    var fractional = parts[1];
+    // If IN region, use Indian Comma Separator
+    // to format numbers (i.e. 100000 -> 1,00,000)
+        // The group separator is added after any digit that is followed by a
+        // multiple of three digits (e.g. 10000 -> 10,000).
+        var integer = parts[0].replace(/(\d)(?=(\d{3})+\b)/g, "$1" + GROUP_SEPARATOR);
+    // Combine integer and fractional part with DECIMAL_SEPARATOR
+    return integer + (fractional ? (DECIMAL_SEPARATOR + fractional) : '');
+};
+
+/**
+ * Return a number as a currency string.
+ * @method formatCurrency
+ * @number {Number}
+ * @return returns formatted currency string.
+ */
+var formatCurrency =  function(number) {
+    var decimalPlaces;
+        decimalPlaces = 2;
+    return CURRENCY_SYMBOL + formatNumber(number, decimalPlaces);
+
+};
+
+/**
+ * Return a string for a date as formatted for pre-release date.
+ * @method formatDate
+ * @string {date} of form YYYY-mm-dd
+ * @return returns formatted date string.
+ */
+var formatDate = function(date) {
+    var dateParts = date.split("-");
+        var splitDate = LOCALE_MONTHS[dateParts[1]-1] + ' ' + dateParts[2] + ', ' + dateParts[0];
+    return splitDate;
+};
+
+
+
+var ProductHelper = function() {
+    // Use short preorder text strings
+    
+    
+
+    // Based on LOCALES as applied in CreativeModel.getRenderingContext
+    var PREORDER_TEXT = 'Releases RELEASEDATE';
+    var PREORDER_NO_REL_DATE_TEXT = 'Not yet released';
+    var domain = 'https://www.amazon.com/';
+
+    function ProductHelper() {};
+
+    ProductHelper.getDetailPageLink = function(asin, merchantId) {
+        var result = domain + 'dp/' + asin;
+        if(merchantId) {
+            result += '?me=' + merchantId;
+        }
+        return result;
+    };
+
+    ProductHelper.getReviewsLink = function(asin) {
+        return domain + 'product-reviews/' + asin;
+    };
+
+    ProductHelper.getAtcLink = function(product) {
+        return domain + 'gp/product-ads/shared/utility/add-to-cart.html?' + getQueryString({
+            'ie' : 'UTF8',
+            'token' : product.token,
+            'time' : product.time,
+            'merchantId' : product.merchantId,
+            'asin' : product.asin,
+            'program' : 'dads',
+            // Must have 2 decimal places to match the token.
+            'adPrice' : product.buyingPrice.toFixed(2)
+        });
+    };
+
+    /**
+    * Process the AAN response.  Order it the same way as an asin list
+    * passed in and divide the products into inStock and outOfStock.
+    * Also return a Map of ASIN to Product info.
+    */
+    ProductHelper.processAanResponse = function(aanResponse, orderedListOfAsins) {
+        var inStockProducts = [];
+        var outOfStockProducts = [];
+
+        var aanResponseAsinMap = {};
+        for (var i = 0; i < aanResponse.length; i++) {
+            var product = aanResponse[i];
+            aanResponseAsinMap[product.asin] = product;
+        }
+
+        for (var i = 0; i < orderedListOfAsins.length; i++) {
+            var product = aanResponseAsinMap[orderedListOfAsins[i]];
+            product.index = i;
+
+            if(product.inStock) {
+                inStockProducts.push(product);
+            } else {
+                outOfStockProducts.push(product);
+            }
+        }
+
+        return {
+            inStock: inStockProducts,
+            outOfStock: outOfStockProducts,
+            asinMap: aanResponseAsinMap
+        }
+    }
+
+    /**
+     * Return a number as a currency string.
+     * @method formatCurrency
+     * @number {Number}
+     * @return returns formatted currency string.
+     */
+    ProductHelper.formatCurrency = function(number) {
+        // If `number` is a string, it will be converted to a number by
+        // the operation `* 1` then stored into `num` as a string.
+        var previous = (number * 1).toFixed(2);
+        var current = CURRENCY_SYMBOL + previous.replace('.', DECIMAL_SEPARATOR);
+        while (current != previous) {
+            previous = current;
+            current = previous.replace(/(\d)(\d{3}\D)/, "$1" + GROUP_SEPARATOR + "$2");
+        }
+        return current;
+    };
+
+    ProductHelper.formatDate = function(date) {
+        var dateParts = date.split("-");
+
+        // Extract important parts from the date
+        var dayNumber = dateParts[2];
+        var monthNumber = dateParts[1];
+        var monthName = LOCALE_MONTHS[monthNumber-1];
+        var year = dateParts[0];
+
+        // The default date format.
+        var splitDate = monthName + ' ' + dayNumber + ', ' + year;
+
+        // Certain locales have different date formats
+
+        return splitDate;
+    };
+
+    ProductHelper.getPreorderText = function(date) {
+        if(date){
+            return PREORDER_TEXT.replace('RELEASEDATE', this.formatDate(date));
+        } else {
+            return PREORDER_NO_REL_DATE_TEXT;
+        }
+    };
+
+    ProductHelper.getPpuText = function(product) {
+        if (product.pricePerUnit) {
+            var ppu = product.pricePerUnit.split('/');
+            var ppuPrice = trimText(ppu[0]);
+            var ppuText = trimText(ppu[1]);
+            return ' (' + formatCurrency(ppuPrice) + ' / ' + ppuText + ')';
+        } else {
+            return '';
+        }
+    }
+
+    return ProductHelper;
+}();
+
+
+    var PRODUCT_INFO;
+    var determineInStockStatus = function() {
+        // TOD what about fallback state?
+        //var respInfo = AAN_OFFERS_RESPONSE || userDefinedProductMetadata;
+        PRODUCT_INFO = ProductHelper.processAanResponse(AAN_OFFERS_RESPONSE, asins);
+
+;
+
+;
+
+
+        if (PRODUCT_INFO.inStock || PRODUCT_INFO.outOfStock) {
+            // Show out-of-stock products only if there are no in-stock products.
+            var showingInStock = PRODUCT_INFO.inStock.length > 0;
+
+            // Choose the appropriate products.
+            productList = showingInStock ? PRODUCT_INFO.inStock : PRODUCT_INFO.outOfStock;
+
+            // Clearing the options since in the fallback case all of the asins are inserted into the selector.
+            $selector.options.length = 0;
+
+            // Add them to the selector.
+            forEach(productList, function(prodObj, index) {
+                // label
+                var label = userDefinedProductMetadata[prodObj.asin].label;
+                $selector.options[index] = new Option(label, prodObj.asin);
+                $selector.options[index].title = label;
+                // Set Inner HTML in order to render escaped special characters
+                $selector.options[index].innerHTML = label;
+            });
+            // If we are showing only one
+            if (productList.length == 1) {
+                addClass($box, 'singleAsin');
+            }
+
+            if (!showingInStock) {
+                addClass($box, 'fallback');
+            }
+
+            // Load the appropriate default selection.
+            chooseProduct();
+            $selector.onchange = chooseProduct;
+
+            if(typeof ClientMetrics !== 'undefined') {
+                var fsEvent = showingInStock ? 'inStock' : 'outOfStock';
+                ClientMetrics.logEvent(ClientMetrics.events.FINAL_STATE, fsEvent);
+            }
+        }
+    };
+
+    var fallback = function(title, link) {
+        setPrimaryButtonState('shopnow');
+        setTrackerHref($button, SHOP_NOW_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+        setTrackerHref($logo, BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+        setTrackerHref($title, TITLE_CLICK_TRAFFIC_EVENT_TYPE, link, shouldOpenInNewWindow);
+
+        // The innerHTML must be set after the href attribute is set due to a "feature"
+        // in IE<9 that sometimes changes the innerHTML when you set the href.
+        $title.innerHTML = title;
+
+        if(typeof(afterFallback) == "function") {
+            afterFallback(link);
+        }
+
+        if(typeof ClientMetrics !== 'undefined') {
+            ClientMetrics.logEvent(ClientMetrics.events.FINAL_STATE, 'fallback');
+        }
+    };
+
+    /* ========================================================
+     *
+     * CALL AAN ENDPOINT
+     *
+     * ========================================================
+     */
+
+    //AAN retry parameters
+    var AAN_RETRY_COUNT = 1;
+    var AAN_RETRY_TIME_MS = 1000;
+    var AAN_EXPONENTIAL_BACKOFF_COEFFICIENT = 1;
+    var FALLBACK_TRIGGER_WAIT_TIME = 1500;
+
+    var AAN_OFFERS_RESPONSE;
+
+    var AanParams = {
+        "Operation" : "GetDecoratedOffers",
+        "asins" : asins.join(','),
+            "attributes" : "customerReviewSummary,itemTitle",
+        "marketplaceId" : DEFAULT_MARKETPLACE_ID,
+        "token" : AUTH_TOKEN,
+        "ContentType" : "JSON"
+    };
+
+    /**
+     * When no response is received, the default shop now state should be shown.
+     */
+    var fallbackCallback = function() {
+        shazam_logger.endTimer(ShazamLogger.LOG_EVENT_NAMES.BUY_BOX_LOAD_LATENCY); //End a timer if the buybox is not loaded successfully
+        shazam_logger.addCount(ShazamLogger.LOG_EVENT_NAMES.AAN_ERROR); //Log an AanError if no response received
+        if(!aanResponseReceived && !fallbackCalled){
+            fallbackCalled = true;
+            determineInStockStatus();
+            fadeElement($box, true);
+
+            if(typeof ClientMetrics !== 'undefined') {
+                ClientMetrics.timeFromStart(ClientMetrics.events.FINAL_STATE_TIME);
+            }
+        }
+    };
+
+    /**
+     * On successful response from AAN, load the information received
+     * and render the info using the data.
+     */
+    var responseCallback = function(data) {
+        shazam_logger.endTimer(ShazamLogger.LOG_EVENT_NAMES.BUY_BOX_LOAD_LATENCY);//End a timer for loading successfully
+        removeClass($box, 'fallback');
+
+        try {
+            var response = data.GetDecoratedOffersResponse;
+            // If there was an error, GetDecoratedOffersResponse won't be set.
+            if (response && (offers = response.GetDecoratedOffersResult.offers) && offers.length) {
+                aanResponseReceived = true;
+                AAN_OFFERS_RESPONSE = offers;
+                buybox.initialize();
+
+                if(typeof ClientMetrics !== 'undefined') {
+                    ClientMetrics.timeFromStart(ClientMetrics.events.FINAL_STATE_TIME);
+                }
+            } else {
+                fallbackCallback();
+            }
+        }
+        catch(e) {
+                console.log('Error', e);
+                console.log('Error Message', e.message);
+            aanResponseReceived = false;
+            fallbackCallback();
+        }
+    };
+
+    // Show the default fallback state if the retries/calls to AAN have
+    // not yet returned
+    setTimeout(function(){
+        if(!aanResponseReceived){
+            console.log("in the timeout callback");
+            fallbackCallback();
+        }
+    }, FALLBACK_TRIGGER_WAIT_TIME);
+
+    // TODO: Don't make callService a global in whatever helpers file
+    // it's in. Not entirely sure why the various response and fallback
+    // callback functions have to be bound. Seems like they should have
+    // proper context.
+
+    //Listener to selector
+    ShazamLogger.addListener($selector, "change", function() {
+        shazam_logger.addCount(ShazamLogger.LOG_EVENT_NAMES.DROP_DOWN_SELECTOR);
+    });
+
+    shazam_logger.startTimer(ShazamLogger.LOG_EVENT_NAMES.BUY_BOX_LOAD_LATENCY);//Start a timer for buybox loading
+    callService(AAN_ENDPOINT, AanParams, AAN_RETRY_COUNT + 1, AAN_RETRY_TIME_MS, AAN_EXPONENTIAL_BACKOFF_COEFFICIENT, responseCallback, fallbackCallback);
+};
+
+        /**
+ * To use, include this JS and when you select a product, call:
+ * selectAsinImage(index_of_product, link_for_image);
+ */
+
+    var ASIN_SPRITE_URL = isSecure(location) ? 'https://images-na.ssl-images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg' : 'http://ecx.images-amazon.com/images/I/616lbf80ZdL._AC_SR128,145_.jpg';
+
+    var ASIN_FADE_DURATION = 150;
+    var $asinSprite = getElementById('asinSprite');
+    var $asinImage = getElementById('asinImg');
+
+    var initialBoxHeight = -1;
+    // Slide sprite image to the given combobox index.
+    var slideSprite = function (index) {
+        var asinImageHeight = calculateAsinSize(index);
+            $asinImage.style.marginTop = '0px';
+    };
+
+    // Generate image url for the ith product
+    var getImageUrl = function(spriteUrl, imgIdx, width, height) {
+        var dotIndex = spriteUrl.lastIndexOf('.');
+        var underscoreIndex = spriteUrl.indexOf('_');
+        var urlBase, imgName, imgExt;
+        var baseAndImg1 = spriteUrl.substring(0,underscoreIndex); // https://images-na.ssl-images-amazon.com/images/I/51dAl9ybbxL
+        var slashIndex = baseAndImg1.lastIndexOf('/');
+        urlBase = baseAndImg1.substring(0, slashIndex+1);
+        if (imgIdx == 0) {
+            imgName = baseAndImg1.substring(slashIndex+1, baseAndImg1.length); // dot included
+            imgExt = spriteUrl.substring(dotIndex, spriteUrl.length); // dot included
+        }
+        else {
+            var urlParts = spriteUrl.split("|");
+            if (urlParts.length < 3) {
+                return "";
+            }
+            var images = urlParts[2].split(",");
+            if (images.length <= imgIdx - 1) {
+                return "";
+            }
+            var nameAndExt = images[imgIdx-1].split(".");
+            imgName = nameAndExt[0] + "."; // dot included
+            imgExt = "." + (nameAndExt.length > 1 ? nameAndExt[1] : ""); // dot included
+        }
+        return  urlBase + imgName + '_AC_SX' + width + '_SY' + height + '_' + imgExt;
+    }
+    
+    // Calculate the max height&width for the asin according to the buybox size.
+    var calculateAsinSize = function() {
+        if ($box.style.visibility != 'visible') {
+            $box.style.visibility = 'hidden';
+            $box.style.display = 'block';
+        }
+        var margin = 8;
+        // Calculate both horizontal and vertical blank space to find out max asin image size.
+        var asinImageHeight;
+                            var horizontalBlankSpace = $link.offsetWidth - ($box.offsetWidth + 3 * margin);
+                if (horizontalBlankSpace < 0) {
+                    // No horizontal space left, we will position the sprite to a vertical blank space.
+                    asinImageHeight = $link.offsetWidth - 2 * margin;
+                } else {
+                    asinImageHeight = horizontalBlankSpace;
+                }
+    
+                // Center asin sprite horizontally.
+                if($box.offsetLeft > margin) {
+                    $asinSprite.style.left = margin + 'px'; // BuyBox is on right
+                } else {
+                    $asinSprite.style.right = margin + 'px'; // BuyBox is on left
+                }
+                // Center asin sprite vertically.
+                if(($link.offsetWidth - $info.offsetWidth) < asinImageHeight) {
+                    $asinSprite.style.bottom = ($info.offsetHeight + 2 * margin) + 'px';
+                } else {
+                    $asinSprite.style.bottom = ($info.offsetHeight < asinImageHeight) ? margin + 'px' : ((($info.offsetHeight - asinImageHeight) / 2) + margin) + 'px';
+                }
+
+        // Set the asin image size and scroll the sprite to correct position.
+        $asinSprite.style.width = $asinSprite.style.height =  asinImageHeight + 'px';
+        $asinImage.style.height = (products.length * asinImageHeight + products.length) + 'px'; // adds empty pixel
+        $asinImage.style.width = asinImageHeight + 'px';
+
+        // Overrides for site stripe ads.
+
+        return asinImageHeight;
+    };
+
+
+
+    // Currently first asin image is not composed to the background therefore, keep scrolling for each index.
+    var selectAsinImage = function(index, link) {
+        if (ASIN_SPRITE_URL && ASIN_SPRITE_URL.indexOf('|')) {
+            // Add asinSprite link to show the sprite.
+            if (!$asinSprite) {
+                $asinSprite = document.createElement('a');
+                $asinSprite.setAttribute('id', 'asinSprite');
+                    $box.parentNode.appendChild($asinSprite);
+
+                $asinImage = document.createElement('img');
+                $asinImage.setAttribute('id', 'asinImg');
+                $asinImage.src = ASIN_SPRITE_URL;
+                $asinSprite.appendChild($asinImage);
+
+                $asinImage.style.border = '0';
+
+                // show sprite after buybox fades in
+                setTimeout(function(){
+                    var spriteElement = getElementById('asinSprite');
+                    setOpacity(spriteElement, 1);
+                }, FADE_DURATION);
+            }
+            var slideThenFadeInSprite = function(){
+                // Added one extra pixel after each asin otherwise asin images overlap in the sprite.
+                slideSprite(index);
+                fadeElement($asinSprite, true, null, ASIN_FADE_DURATION);
+            };
+            if ($asinSprite.style.display) {
+                fadeElement($asinSprite, false, slideThenFadeInSprite, ASIN_FADE_DURATION);
+            } else {
+                slideSprite(index); /* slide if first asin is not available */
+            }
+            setHref($asinSprite, link);
+        }
+    };
+
+
+window.AmsUtils = window.AmsUtils || {};
+
+
+    
+    (function(){
+        var AmsUtils = window.AmsUtils;
+        /**
+         * Adding Event Listener to a given Object
+         * addEventListenerGeneric(window, "resize", reorganizeElements);
+         * @param element Element to Attach a listener
+         * @param event Which event to register
+         * @param func function CB
+         */
+        AmsUtils.addEventListenerGeneric = function(element, event, func) {
+            if (element.addEventListener) {
+                element.addEventListener(event, func);
+            } else if(element.attachEvent){
+                element.attachEvent("on" + event, func);
+            }
+        };
+
+        /**
+         * Retrieve a style property in a cross-browser compatible way
+         * This function can be removed once we no longer support IE8
+         * @param element Element to retrieve property from
+         * @param property Property to retrieve
+         * @returns {string} Property value
+         */
+        AmsUtils.getStyleProperty = function(element, property) {
+            if (window.getComputedStyle) {
+                return window.getComputedStyle(element).getPropertyValue(property);
+            } else {
+                return element.currentStyle[property];
+            }
+        }
+
+        /**
+         * If number is undefined or nan, return 0
+         * @param num
+         * @returns {number}
+         */
+        AmsUtils.nanToZero = function(num){
+            return num || 0;
+        };
+
+        /**
+         * Checks to see if an element contains a specified class
+         * @param element Element to check
+         * @param className Class to check for
+         * @returns {boolean} True if element contains class; false otherwise
+         */
+        AmsUtils.hasClass = function(element, className) {
+            if (element.classList)
+                return element.classList.contains(className)
+            else
+                return !!element.className.match(new RegExp('(\\s|^)' + className + '(\\s|$)'))
+        };
+
+        /**
+         * Add a specified class to an element
+         * @param element Element to add class to
+         * @param className Class to add to element
+         */
+        AmsUtils.addClass = function(element, className) {
+            if (element.classList)
+                element.classList.add(className)
+            else if (!hasClass(element, className)) element.className += " " + className
+        };
+
+        /**
+         * Remove a specified class from an element
+         * @param element Element to remove class from
+         * @param className Class to remove from element
+         */
+        AmsUtils.removeClass = function(element, className) {
+            if (element.classList)
+                element.classList.remove(className)
+            else if (hasClass(element, className)) {
+                var reg = new RegExp('(\\s|^)' + className + '(\\s|$)')
+                element.className=element.className.replace(reg, ' ')
+            }
+        };
+
+
+    }());
+
+
+    
+
+    (function() {
+
+        // Export AmsUtil global object
+        var AmsUtils = window.AmsUtils;
+
+        // Product title max length defined by the old limitation on Ad builder
+        var PRODUCT_TITLE_MAX_LENGTH = 50;
+
+        /**
+         * Reset entire class for given DOM Object
+         * @param element {Object} HTML DOM Object to set class
+         * @param classProperty class names separated by spaces.
+         */
+        AmsUtils.setClass = function (element, classProperty) {
+            element.className = classProperty;
+        };
+
+
+        /**
+         * Wrap given HTML Dom Object with span tag.
+         * @param element {Object} HTML DOM Object to be wrapped inside.
+         * @param wrapperID ID for Wrapping span Tag.
+         */
+        AmsUtils.wrapInSpan = function (element, wrapperID) {
+            var text = element.innerHTML;
+            text = '<span id="' + wrapperID + '">' + text + '</span>';
+            element.innerHTML = text;
+        };
+
+        /**
+         * Decode all HTML entities.
+         * @param str string to be decoded
+         * @returns {string}
+         */
+        AmsUtils.decodeEntities = (function () {
+            // this prevents any overhead from creating the object each time
+            var element = document.createElement('div');
+
+            function decodeHTMLEntities(str) {
+                if (str && typeof str === 'string') {
+                    // strip script/html tags to prevent XSS hacks.
+                    str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gmi, '');
+                    str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gmi, '');
+                    // Decode no breaking space (unicode codepoint \0A00) in order to avoid truncation errors
+                    str = str.replace(/\u00a0/g, ' ');
+                    element.innerHTML = str;
+                    str = element.textContent || element.innerHTML || "";
+                    element.textContent = '';
+                }
+                return str;
+            }
+
+            return decodeHTMLEntities;
+        })();
+
+        /**
+         * Perform resizing text to fit the text into given max number of lines.
+         * Initially try with diminishing font-size, and then start truncating words.
+         * !!!! Make sure element is Span Tag **
+         * Sample font input
+         * var HEADLINE_FONT_WIDE   = {maxLines: 2, minFontPx: 15, maxFontPx: 22};
+         *
+         * @param element {Object} HTML DOM Object element to do resizing !!! It has to be a span tag.
+         * @param originalText give original Text.
+         * @param font Object to determine how to resize text.
+         */
+        AmsUtils.resizeText = function (element, originalText, font) {
+            var ELLIPSE = "..."; // We currently use three periods for an ellipse due to the BuyBox
+            element.innerHTML = originalText;
+            element.style.fontSize = font.maxFontPx + 'px';
+            var lines = element.getClientRects().length;
+            var fontSize = font.maxFontPx;
+            var isLastCharRemoved = false;
+            while ((font.maxLines && lines > font.maxLines)) {
+                if (fontSize <= font.minFontPx) {
+                    if (!isLastCharRemoved) {
+                        element.innerHTML += ELLIPSE;
+                        isLastCharRemoved = true;
+                    }
+                    var decodedText = AmsUtils.decodeEntities(element.innerHTML);
+                    var charCount = decodedText.length;
+                    element.innerHTML = decodedText.substr(0, charCount - ELLIPSE.length - 1) + ELLIPSE;
+                }
+                else {
+                    fontSize--;
+                    element.style.fontSize = fontSize + 'px';
+                }
+                lines = element.getClientRects().length;
+            }
+        };
+
+        /**
+         * Return actual OuterWidth of an element including margin
+         * @param element
+         * @returns {number} outerWidth
+         */
+        AmsUtils.outerWidth = function (element) {
+            // we're assuming a reference to your element in a variable called 'element'
+            var style = AmsUtils.nanToZero(element.currentStyle || window.getComputedStyle(element)),
+                width = element.offsetWidth, // or use style.width
+                margin = AmsUtils.nanToZero(parseFloat(style.marginLeft)) +
+                    AmsUtils.nanToZero(parseFloat(style.marginRight)),
+                padding = AmsUtils.nanToZero(parseFloat(style.paddingLeft)) +
+                    AmsUtils.nanToZero(parseFloat(style.paddingRight)),
+                border = AmsUtils.nanToZero(parseFloat(style.borderLeftWidth)) +
+                    AmsUtils.nanToZero(parseFloat(style.borderRightWidth));
+            return (width + margin - padding + border);
+        };
+
+        /**
+         * Complete the product title if it has been cut off due to the old limitation of 50 characters
+         * in the Ad builder
+         * @param element the HTML element containg the product title
+         * @param product the product object returned from the asynchronous call
+         */
+        AmsUtils.completeProductTitle = function(element, product) {
+            if(element.innerHTML.length === PRODUCT_TITLE_MAX_LENGTH && typeof product.itemTitle !== "undefined" && product.itemTitle !== null) {
+                var decodedTitle = AmsUtils.decodeEntities(element.innerHTML);
+                if(product.itemTitle.substring(0, PRODUCT_TITLE_MAX_LENGTH) === decodedTitle.substring(0, PRODUCT_TITLE_MAX_LENGTH)) {
+                    //recover full product title.
+                    element.innerHTML = product.itemTitle;
+                }
+            }
+        };
+
+    }());
+
+
+
+    
+    (function(){
+        var AmsUtils = window.AmsUtils;
+        // I18n text for Sponsored By. ** It has trailing space **
+        AmsUtils.sponsoredBy = function () {
+            var amsSponsoredBy = ""
+             + "Sponsored By "
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            ;
+            if(amsSponsoredBy === ""){
+                if(window.SFClient){
+                    try{
+                        window.SFClient.logError("AMS_ERROR Internalization for Sponsored By is needed for US", "ams_js_i18n_error", "ERROR");
+                    } catch(e){}
+                }
+                amsSponsoredBy = "Sponsored By";
+            }
+            return amsSponsoredBy;
+        }();
+
+        // I18n text for Sponsored . ** It has trailing space **
+        AmsUtils.sponsored = function () {
+            var amsSponsored = ""
+             + "Sponsored"
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            ;
+            if(amsSponsored === ""){
+                if(window.SFClient){
+                    try{
+                        window.SFClient.logError("AMS_ERROR Internalization for Sponsored is needed for US", "ams_js_i18n_error", "ERROR");
+                    } catch(e){}
+                }
+                amsSponsored = "Sponsored";
+            }
+            return amsSponsored;
+        }();
+        
+        // I18n text for Shop Now
+        AmsUtils.shopNow = function () {
+            var amsShopNow = ""
+            + "Shop now"
+            
+            
+            
+            
+            
+            
+            
+            
+            ;
+            if(amsShopNow === ""){
+                if(window.SFClient){
+                    try{
+                        window.SFClient.logError("AMS_ERROR Internalization for Shop Now is needed for US", "ams_js_i18n_error", "ERROR");
+                    } catch(e){}
+                }
+                amsShopNow = "Shop now";
+            }
+            return amsShopNow;
+        }();
+    }());
+
+    
+    /**
+     * This library contains functions related to Javascript Objects.
+     */
+    (function(){
+        var AmsUtils = window.AmsUtils;
+
+        /**
+         * Determines if an object hash contains a value.
+         *
+         * @param obj the object to inspect
+         * @param val the target value to check
+         * @returns {boolean} true if the value is within one of the object's properties
+         */
+        var hasOwnValue = function(obj, val) {
+            for (var key in obj) {
+                if (Object.prototype.hasOwnProperty.call(obj, key) && obj[key] === val) {
+                    return true;
+                }
+            }
+            return false;
+        };
+
+        // Export objects which should be made public.
+        AmsUtils.hasOwnValue = hasOwnValue;
+    }());
+
+
+    
+    /**
+     * This library contains functions related to transforming URLs.
+     */
+    (function(){
+        var AmsUtils = window.AmsUtils;
+
+        /**
+         * Adds or updates a given parameter on an URL.
+         *
+         * @param url the original URL
+         * @param key the parameter to set
+         * @param [value] optional value for the parameter
+         * @returns {*} the url with the parameter set
+         */
+        var setUrlParam = function setUrlParam(url, key, value) {
+            var re = new RegExp("([?&])" + key + "=.*?(&|#|$)(.*)", "gi"),
+                hash;
+
+            if (re.test(url)) {
+                if (typeof value !== 'undefined' && value !== null)
+                    return url.replace(re, '$1' + key + "=" + value + '$2$3');
+                else {
+                    hash = url.split('#');
+                    url = hash[0].replace(re, '$1$3').replace(/(&|\?)$/, '');
+                    if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                        url += '#' + hash[1];
+                    return url;
+                }
+            }
+            else {
+                if (typeof value !== 'undefined' && value !== null) {
+                    var separator = url.indexOf('?') !== -1 ? '&' : '?';
+                    hash = url.split('#');
+                    url = hash[0] + separator + key + '=' + value;
+                    if (typeof hash[1] !== 'undefined' && hash[1] !== null)
+                        url += '#' + hash[1];
+                    return url;
+                }
+                else
+                    return url;
+            }
+        };
+
+        /**
+         * Append a Base64 encoded query param to a VPC (Vendor Powered Coupons) url to track clip by clip source
+         * @param url Url to redirect to
+         */
+        var setVpcParam = function($link) {
+            // IE 9 and below do not support btoa
+            if (btoa) {
+                var linkOriginalHref = $link.getAttribute("data-href");
+                if (!linkOriginalHref) {
+                    linkOriginalHref = $link.href;
+                    $link.setAttribute("data-href", $link.href);
+                }
+                var curTime = new Date().getTime();
+                var encodedString = btoa(curTime + ';AMS');
+                $link.href = AmsUtils.setUrlParam(linkOriginalHref, 'vpc_cs', encodedString);
+            }
+        };
+
+        // Export objects which should be made public.
+        AmsUtils.setUrlParam = setUrlParam;
+        AmsUtils.setVpcParam = setVpcParam;
+    }());
+
+
+    
+    /**
+     * This library is used to generate ref-tags.
+     * These ref-tags are registered at https://feature-registry.amazon.com/
+     * Under: Amazon Marketing Services > ams_ad_
+     */
+    (function(){
+        var AmsUtils = window.AmsUtils;
+
+        var REF_TAG_PREFIX = 'ams_ad_';
+        var REF_TAG_PARAMETER = 'ref_';
+
+        /**
+         * Types of pages ad will redirect to.
+         */
+        var RefTagPageEnum = {
+            COUPON: 'cpn',
+            CUSTOMER_REVIEWS: 'cr',
+            DETAIL: 'dp',
+            HIGH_UPSELL_CART: 'huc',
+            LANDING: 'lp'
+        };
+
+        /**
+         * Location of the link within the ad.
+         */
+        var RefTagLinkEnum = {
+            ADD_TO_CART: 'atc',
+            ASIN_1: 'asin_1',
+            ASIN_2: 'asin_2',
+            ASIN_3: 'asin_3',
+            ASIN_IMG: 'asin_img',
+            OVERLAY: 'ovrl',
+            RATING_INFO: 'ri',
+            TITLE: 'ttl'
+        };
+
+        /**
+         * Builds like the ref-tag.
+         *
+         * @param pageType the page the link refers to
+         * @param linkType the location of the link within the ad
+         * @returns {string} the ref-tag
+         */
+        var getRefTag = function (pageType, linkType) {
+            if (!(AmsUtils.hasOwnValue(RefTagPageEnum, pageType) && AmsUtils.hasOwnValue(RefTagLinkEnum, linkType))) {
+                throw new Error('Invalid page type "' + pageType + '" or link type "' + linkType + '"');
+            }
+
+            return REF_TAG_PREFIX + pageType + '_' + linkType;
+        };
+
+        /**
+         * Sets the ref-tag parameter within the URL.
+         *
+         * @param url the url to set the ref-tag on
+         * @param pageType the page the link refers to
+         * @param linkType the location of the link within the ad
+         * @returns {*} the url with the ref-tag set
+         */
+        var setRefTag = function(url, pageType, linkType) {
+            var refTag = getRefTag(pageType, linkType);
+            return AmsUtils.setUrlParam(url, REF_TAG_PARAMETER, refTag);
+        };
+
+        // Export objects which should be made public.
+        AmsUtils.RefTagPageEnum = RefTagPageEnum;
+        AmsUtils.RefTagLinkEnum = RefTagLinkEnum;
+        AmsUtils.getRefTag = getRefTag;
+        AmsUtils.setRefTag = setRefTag;
+    }());
+
+
+        var AmsUtils = window.AmsUtils;
+        var TOTAL_HEIGHT = 250;
+        var WIDE_NARROW_DIVIDER = 350;
+        var $link = getElementById('customRedirectLink');
+        var ad = getElementById("ad");
+        var browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        var MODE_BROWSER_SIZE = browserWidth < WIDE_NARROW_DIVIDER ? "NARROW" : "WIDE";
+        var MODE_ASIN_ORIENTATION;
+        var PREORDER_WITH_REVIEW_COUNT = false;
+        var MODE_COUPON = false;
+        var couponAvailable = false;
+        var adContainer = getElementById('adContainer');
+        var buyBoxWideContainer = getElementById('buyBoxWideContainer');
+        var buyBoxNarrowContainer = getElementById('buyBoxNarrowContainer');
+
+        var sponsoredByBrand = getElementById('sponsoredByBrand');
+        var asinVerticalContainer = getElementById('asinVerticalContainer');
+        var asinNarrowHorizontalContainer = getElementById('asinNarrowHorizontalContainer');
+        var asinWideHorizontalContainer = getElementById('asinWideHorizontalContainer');
+        var logoContainer = getElementById('logoContainer');
+        var brandLogoContainer = getElementById('brandLogoContainer');
+        var brandLogoImage = getElementById('brandLogoImage');
+        var sponsoredByContainer = getElementById('sponsoredByContainer');
+        var headlineContainer = getElementById('headlineContainer');
+        var headlineText = getElementById('headlineText');
+
+        //Place BuyBox in correct div according to browser Width
+        if(MODE_BROWSER_SIZE === "WIDE"){
+            var tempInnerHTML = buyBoxNarrowContainer.innerHTML;
+            buyBoxNarrowContainer.innerHTML = "";
+            buyBoxWideContainer.innerHTML = tempInnerHTML;
+        }
+
+        // Override the THIRD_PARTY_TRACKER declaration from BuyBox-AddToCart so it can be populated by the Cornerstone template
+if (typeof AMS_THIRD_PARTY_TRACKER !== 'undefined') {
+    THIRD_PARTY_TRACKER = AMS_THIRD_PARTY_TRACKER;
+}
+
+// Original function in CommonUtils template.
+// Pull redirect URL from amsClickTrackerURLStore div populated by the "Shazam HTML - AMS EA" Cornerstone template.
+getClickTracker = function(eventType, redirectUrl, signature) {
+        // clickTrackerURLStore is a storage div that is used to pull the URL to track clicks from Cornerstone.
+        // this change is necessary after we've put the creative content on S3, effectively prevents Cornerstone from directly accessing it.
+        var clickTrackerURLStore = document.getElementById('amsClickTrackerURLStore');
+        redirectUrl = clickTrackerURLStore.value + redirectUrl;
+    return redirectUrl;
+};
+
+// Override the setTrackerHref to set the ref-tags.
+var setShazamTrackerHref = setTrackerHref;
+setTrackerHref = function (element, event, redirectURL, newWindow, signature) {
+    if (getElementById("title") === element) {
+        redirectURL = AmsUtils.setRefTag(redirectURL, AmsUtils.RefTagPageEnum.DETAIL, AmsUtils.RefTagLinkEnum.TITLE);
+    } else if (getElementById('ratingInfo') === element) {
+        redirectURL = AmsUtils.setRefTag(redirectURL, AmsUtils.RefTagPageEnum.CUSTOMER_REVIEWS, AmsUtils.RefTagLinkEnum.RATING_INFO);
+    } else if (getElementById('button') === element) {
+        redirectURL = AmsUtils.setRefTag(redirectURL, AmsUtils.RefTagPageEnum.DETAIL, AmsUtils.RefTagLinkEnum.ADD_TO_CART);
+    }
+    return setShazamTrackerHref(element, event, redirectURL, newWindow, signature);
+};
+
+// Populate the ASIN image
+// Image is pulled from the getImageUrl function in the asin-sprite.js file
+var selectAsinImage = function(index, link) {
+    // Width and height are hard coded to 1.3x the available space (100x100)
+    var cacheBuster = new Date().getTime();
+    var asinUrl;
+    if (MODE_BROWSER_SIZE === "NARROW") {
+        asinUrl = getImageUrl(ASIN_SPRITE_URL, 0, 220, 150, cacheBuster);
+    }
+    else {
+        asinUrl = getImageUrl(ASIN_SPRITE_URL, 0, 160, 210, cacheBuster);
+    }
+    //check the dimension of image
+    var img = new Image();
+    img.onload = function () {
+        //Horizontal Product Image
+        if(this.width >= (this.height * 1.5)){
+            MODE_ASIN_ORIENTATION = "HORIZONTAL";
+        }
+        else{
+            MODE_ASIN_ORIENTATION = "VERTICAL";
+        }
+        attachImage(img, link);
+    };
+    img.src = asinUrl;
+};
+
+var attachImage = function(asinImage, link){
+    asinImage.setAttribute('id', 'asin' + MODE_BROWSER_SIZE + 'Img');
+
+    // Add asinSprite link to show the sprite
+    var asinSprite = document.createElement('a');
+    asinSprite.setAttribute('id', 'asinSprite');
+    var refTagLinkAsinImg = AmsUtils.setRefTag(link, AmsUtils.RefTagPageEnum.DETAIL, AmsUtils.RefTagLinkEnum.ASIN_IMG);
+    var bgClickTrackerAsinImg = getClickTracker(BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE, refTagLinkAsinImg);
+    setHref(asinSprite, bgClickTrackerAsinImg);
+    if (couponAvailable) {
+        Util.bindEvent(asinSprite, 'mousedown', function(e){AmsUtils.setVpcParam(asinSprite)});
+    }
+    asinSprite.appendChild(asinImage);
+
+    if(MODE_ASIN_ORIENTATION === "HORIZONTAL"){
+        if (MODE_BROWSER_SIZE === "NARROW") {
+            getElementById("asinNarrowHorizontalContainer").appendChild(asinSprite);
+        }
+        else {
+            getElementById("asinWideHorizontalContainer").appendChild(asinSprite);
+        }
+    }
+    else{
+        getElementById("asinVerticalContainer").appendChild(asinSprite);
+    }
+
+    asinImage.style.border = '0';
+    // Resize elements after image has loaded so that we get the correct locations for elements
+    reorganize('images/S/abs-image-upload-na/6/ams/ATVPDKIKX0DER/749d2d7f4d3b9586102ec10b9835798d.w300.h300._CR0,0,300,300_SL280_SY80_.jpg');
+};
+
+var setupDefault = function()
+{
+    //Due to error, if coupon initialization failed.
+
+    //setupDefault only gets called for non-coupon creative
+    MODE_COUPON = false;
+
+    // Initialize the buybox
+    var buyBox = new BuyBox();
+
+    // Override productChanged from BuyBox-AddToCard in order to set our own asin img URL and truncate the title.
+    buyBox.productChanged = function (index, product, link) {
+        // Set ref-tags and click tracker
+        var refTagLink = AmsUtils.setRefTag(link, AmsUtils.RefTagPageEnum.DETAIL, AmsUtils.RefTagLinkEnum.OVERLAY);
+        var clickTrackerUrl = getClickTracker(BACKGROUND_CLICK_TRAFFIC_EVENT_TYPE, refTagLink);
+        setHref($link, clickTrackerUrl);
+
+        //Campaigns have 50 character product title limit in adbuilder.
+        //This is to recover rest of product title, if it was not customized.
+        var titleDiv = getElementById('title');
+        AmsUtils.completeProductTitle(titleDiv, product);
+
+        //if Asin is in preorder period and has reviews, display only 1 line of asin title
+        var shouldPreorder = product.shouldPreorder;
+        if(shouldPreorder && product.customerReviewSummary && product.customerReviewSummary.rating > 0) {
+            PREORDER_WITH_REVIEW_COUNT = true;
+        }
+
+        // Display Product Image
+        selectAsinImage(index, link);
+    };
+    buyBox.initialize();
+};
+
+
+        var sfClient = window.SFClient;
+
+        var BRANDNAME_FONT_NARROW_VERTICAL = {maxLines: 1, minFontPx: 8, maxFontPx: 10};
+        var BRANDNAME_FONT_NARROW_HORIZONTAL = {maxLines: 1, minFontPx: 10, maxFontPx: 10};
+        var BRANDNAME_FONT_WIDE  = {maxLines: 1, minFontPx: 11, maxFontPx: 11};
+
+        var HEADLINE_FONT_NARROW_VERTICAL = {maxLines: 3, minFontPx: 12, maxFontPx: 18};
+        var HEADLINE_FONT_NARROW_HORIZONTAL = {maxLines: 2, minFontPx: 12, maxFontPx: 16};
+        var HEADLINE_FONT_WIDE   = {maxLines: 2, minFontPx: 15, maxFontPx: 22};
+        var ASIN_TITLE_FONT      = {maxLines: 2, minFontPx: 12, maxFontPx: 12};
+        var ASIN_TITLE_FONT_NARROW_PREORDER_WITH_REVIEW = {maxLines: 1, minFontPx: 12, maxFontPx: 12};
+        var COUPON_TITLE_FONT    = {maxLines: 2, minFontPx: 12, maxFontPx: 12};
+
+        var MEDIA_URL_PREFIX = isSecure(location) ? '//images-na.ssl-' : '//g-ecx.';
+        var MEDIA_URL = MEDIA_URL_PREFIX + 'images-amazon.com/images/G/01/';
+        var LOGO_URL = (isSecure(location) ? '//images-na.ssl-' : '//g-ecx.') + 'images-amazon.com/';
+        var originalBrandNameText = sponsoredByBrand.innerHTML = getTextContent(sponsoredByBrand).toUpperCase();
+        var originalHeadline = headlineText.innerHTML;
+
+        function getTextContent(node) {
+            return (node.textContent ? node.textContent : (node.innerText ? node.innerText : node.innerHTML));
+        };
+
+        /**
+         * This function should be called when the window is resized or initial load.
+         */
+        var reorganizeBuyBox = function() {
+            //due to roundup sizes in browser's zooming feature
+            var rangeWidth = function(array, width){
+                array.push(width - 2, width - 1, width, width + 1, width + 2); // Adding width +/- 2 to handle edge cases occurring from detail page debug mode
+            };
+            browserWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+
+            //report to parent node to unknown width size.
+            // 244 - ams-detail-right, 270 - ams-detail-pbook, 402 - ams-detail-right-wide
+            var validWidth = [];
+            rangeWidth(validWidth, 244);
+            rangeWidth(validWidth, 270);
+            rangeWidth(validWidth, 402);
+
+            if(sfClient && validWidth.indexOf(browserWidth) < 0){
+                try{
+                    sfClient.logError("Unknown Width Size for AMS Detail Right. Width: [" + browserWidth + "]", "ams_js_detail_right_unknown_width", "ERROR");
+                } catch(e){}
+            }
+
+            //wrap Title in Span Tag, in order to do resizeText correctly
+            if(MODE_COUPON) {
+                AmsUtils.wrapInSpan(getElementById("couponTitle"), "couponTitleWrapper");
+            }
+            else {
+                AmsUtils.wrapInSpan(getElementById('title'), 'titleWrapper');
+            }
+            reorganizeLayout();
+        };
+
+        // set brand logo
+        var reorganize = function(brandLogoimg){
+            if(typeof brandLogoimg === "undefined" || brandLogoimg == ""){
+                reorganizeBuyBox();
+                return;
+            }
+            brandLogoImage.onload = function() {
+                reorganizeBuyBox();
+            };
+            //add whitespace cropping.
+            brandLogoimg = brandLogoimg.replace(/_SL/g,"_AC_SL");
+            brandLogoImage.src = LOGO_URL + brandLogoimg;
+        };
+
+        var reorganizeLayout = function(){
+            var handleSponsoredByOrBrandLogo = function(font, brandNameText, lineBreak){
+                if("images/S/abs-image-upload-na/6/ams/ATVPDKIKX0DER/749d2d7f4d3b9586102ec10b9835798d.w300.h300._CR0,0,300,300_SL280_SY80_.jpg" == ""){
+                    hide(brandLogoContainer);
+                    show(sponsoredByContainer);
+                    var sponsoredText = AmsUtils.sponsoredBy.toUpperCase();
+                    if(lineBreak){
+                        AmsUtils.resizeText(sponsoredByBrand, brandNameText, font);
+                        sponsoredByBrand.innerHTML = sponsoredText + "<br/>" + sponsoredByBrand.innerHTML;
+                    }
+                    else{
+                        sponsoredText = sponsoredText + brandNameText;
+                        AmsUtils.resizeText(sponsoredByBrand, sponsoredText, font);
+                    }
+                }
+                else{
+                    hide(sponsoredByContainer);
+                    show(brandLogoContainer);
+                }
+            };
+            var reorganizeNarrowCommon = function(brandFont, headlineFont, lineBreak) {
+                hide(buyBoxWideContainer);
+                show(buyBoxNarrowContainer);
+                addClass(getElementById("ad"), "ad-narrow");
+                AmsUtils.resizeText(headlineText, originalHeadline, headlineFont);
+                handleSponsoredByOrBrandLogo(brandFont, originalBrandNameText, lineBreak);
+                if(MODE_COUPON) {
+                    addClass(getElementById("couponInfo"), "couponInfo-narrow");
+                }
+            };
+
+            var reorganizeWideCommon = function(headlineClass) {
+                hide(buyBoxNarrowContainer);
+                show(buyBoxWideContainer);
+                addClass(headlineContainer, headlineClass);
+                AmsUtils.resizeText(headlineText, originalHeadline, HEADLINE_FONT_WIDE);
+                handleSponsoredByOrBrandLogo(BRANDNAME_FONT_WIDE,
+                    originalBrandNameText , false);
+                if(MODE_COUPON){
+                    addClass(getElementById("couponInfo"), "couponInfo-wide");
+                }
+            };
+            var BORDER_WIDTH = MODE_COUPON?12:2;
+            var GENERAL_MARGIN = 10;
+            show(logoContainer);
+            if(MODE_ASIN_ORIENTATION === "VERTICAL"){
+                show(asinVerticalContainer);
+                if(MODE_COUPON) {
+                    addClass(asinVerticalContainer, "coupon-asin-vertical");
+                }
+
+                if(MODE_BROWSER_SIZE === "NARROW"){
+                    addClass(asinVerticalContainer, "asin-narrow-vertical");
+                    addClass(logoContainer, "logo-container logo-container-vertical logo-container-narrow-vertical");
+                    //set width excluding margins.
+                    brandLogoImage.style.maxWidth =
+                        (adContainer.offsetWidth - asinVerticalContainer.offsetWidth - BORDER_WIDTH - 30) + "px";
+                    headlineContainer.style.width =
+                        (adContainer.offsetWidth - asinVerticalContainer.offsetWidth - BORDER_WIDTH - 20) + "px";
+                    logoContainer.style.width =
+                        (adContainer.offsetWidth - asinVerticalContainer.offsetWidth - BORDER_WIDTH - 10) + "px";
+                    sponsoredByContainer.style.width =
+                        (adContainer.offsetWidth - asinVerticalContainer.offsetWidth - BORDER_WIDTH - 10) + "px";
+                    reorganizeNarrowCommon(BRANDNAME_FONT_NARROW_VERTICAL, HEADLINE_FONT_NARROW_VERTICAL, true);
+
+                }
+                else{
+                    addClass(asinVerticalContainer, "asin-wide-vertical");
+                    addClass(logoContainer, "logo-container logo-container-vertical logo-container-wide-vertical");
+                    //set width excluding margins. due to coupon's dotted border, we need extra margin for coupons.
+                    brandLogoImage.style.maxWidth =
+                        (adContainer.offsetWidth - asinVerticalContainer.offsetWidth - (MODE_COUPON?40:35)) + "px";
+                    reorganizeWideCommon("headline-wide-vertical");
+                }
+            }
+            else{ //Horizontal
+                if(MODE_BROWSER_SIZE === "NARROW"){
+                    show(asinNarrowHorizontalContainer);
+                    addClass(ad, "entire-vertical-align");
+                    addClass(asinNarrowHorizontalContainer, "asin-narrow-horizontal");
+                    addClass(logoContainer, "logo-container logo-container-narrow-horizontal");
+                    addClass(headlineContainer, "headline-narrow-horizontal");
+                    logoContainer.style.width = (browserWidth - BORDER_WIDTH) + "px"; //excluding border width from total width.
+                    headlineContainer.style.width = (browserWidth - 22) + "px"; //excluding 22 margin width from total width.
+                    reorganizeNarrowCommon(BRANDNAME_FONT_NARROW_HORIZONTAL, HEADLINE_FONT_NARROW_HORIZONTAL, false);
+                }
+                else{
+                    show(asinWideHorizontalContainer);
+                    addClass(getElementById("box"), "buyBox-fixed-height");
+                    addClass(asinWideHorizontalContainer, "asin-wide-horizontal");
+                    addClass(logoContainer, "logo-container logo-container-wide-horizontal");
+                    //Add extra margin for coupon ad
+                    if(MODE_COUPON) {
+                        addClass(headlineContainer, "headline-wide-horizontal-coupon");
+                    }
+                    logoContainer.style.width = (browserWidth - BORDER_WIDTH) + "px"; //excluding border width from total width.
+                    headlineContainer.style.width = (browserWidth - BORDER_WIDTH - GENERAL_MARGIN) + "px";
+                    //subtract buffers from right side
+                    buyBoxWideContainer.style.width =
+                        (adContainer.offsetWidth - asinWideHorizontalContainer.offsetWidth - (MODE_COUPON?12:11))
+                        + "px";
+                    reorganizeWideCommon();
+                }
+
+            }
+
+            if(MODE_COUPON) {
+                var couponTitleWrapper = getElementById("couponTitleWrapper");
+                AmsUtils.resizeText(couponTitleWrapper, couponTitleWrapper.innerHTML, COUPON_TITLE_FONT);
+            }
+            else{
+                //truncate if asin title is too long.
+                if(MODE_BROWSER_SIZE === "NARROW" && PREORDER_WITH_REVIEW_COUNT) {
+                    AmsUtils.resizeText(getElementById('titleWrapper'), getElementById('titleWrapper').innerHTML, ASIN_TITLE_FONT_NARROW_PREORDER_WITH_REVIEW);
+                }
+                else {
+                    AmsUtils.resizeText(getElementById('titleWrapper'), getElementById('titleWrapper').innerHTML, ASIN_TITLE_FONT);
+                }
+            }
+        };
+
+        // Force the window to reload after a browser back button press .
+        window.onbeforeunload = DO_NOTHING;
+            setupDefault();
+    })(window, document, parent);
+}, 0);
+
+</script>
+
+        </div><input id="amsClickTrackerURLStore" type="hidden" value="https://aax-us-east.amazon-adsystem.com/x/c/QibAP3q-F231BebJcAKVKeMAAAFZ_EK6wAEAAAH1AfxVFAo/"><script src="./us"></script>
+    
+
+</body></html>

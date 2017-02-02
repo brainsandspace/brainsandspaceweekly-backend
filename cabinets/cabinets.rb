@@ -2,7 +2,7 @@ require 'twitter'
 require 'firebase'
 require 'pp'
 
-require_relative 'secrets.ignore.rb'
+require_relative '../secrets.ignore.rb'
 include Secrets 
 
 TEN_MINUTES = 600000 # 10 minutes in ms
