@@ -31,7 +31,15 @@ CABINET_PAGE_LINKS.each_with_index do |link, ind|
   page = visit link
   # puts page.body
 
+  sleep 5
+
   page_hash = {}
+
+  # puts 'beginning wait'
+  # wait_until do 
+  #   page.has_selector?('#leftCol')
+  # end
+  # puts 'the wait is over'
 
   # if page.body.match(/data\["colorImages"\] = (\{.+\]\}\}\]\})/)
   #   images_json = page.body.match(/data\["colorImages"\] = (\{.+\]\}\}\]\})/).captures
@@ -47,46 +55,58 @@ CABINET_PAGE_LINKS.each_with_index do |link, ind|
     alt: page.has_selector?('#landingImage') ? page.find_by_id('landingImage')[:alt] : nil
   }
 
-  # alternate images for image gallery
-  page.within("#leftCol") do
-    page.has_selector?('#altImages') ?
-      page.within("#altImages") do
-        page_hash[:alt_images] = []
-        page.all('img').each do |img|
-          page_hash[:alt_images].push({ 
-            src: img[:src],
-            alt: img[:alt]
-          })
-        end
-      end :
-      nil
-  end
+  pp page.body
+  File.write('./cabinets/output', page.body)
+
+  page.find('#leftCol')
+  # thumbnail images for image gallery
+  # if page.has_selector?('#leftCol')
+    page.within("#leftCol") do
+      page.has_selector?('#altImages') ?
+        page.within("#altImages") do
+          page_hash[:image_thumbs] = []
+          page.all('img').each do |img|
+            page_hash[:image_thumbs].push({ 
+              src: img[:src],
+              alt: img[:alt]
+            })
+          end
+        end :
+        nil
+      end
+  # end
 
   # brand name is displayed right above product title
-  page_hash[:brand] = page.find_by_id('brand').text
-  page_hash[:title] = page.find_by_id('title').text
-  page_hash[:price] = page.find_by_id('priceblock_ourprice').text
+  page_hash[:brand] = page.has_selector?('#brand') ? page.find_by_id('brand').text : nil
+  page_hash[:title] = page.has_selector?('#title') ? page.find_by_id('title').text : nil
+  page_hash[:price] = page.has_selector?('#price') ? page.find_by_id('priceblock_ourprice').text : nil
 
   # In stock, out of stock 
-  page.within('#availability') do 
-    page_hash[:availability] = page.find('span').text
-  end
+  # if page.has_selector?('#availability')
+    page.within('#availability') do 
+      page_hash[:availability] = page.find('span').text
+    end
+  # end
   
   # main features
-  page.within('#feature-bullets') do 
-    page_hash[:feature_bullets] = []
-    page.all('li').each do |bullet|
-      page_hash[:feature_bullets].push(bullet.text)
+  # if page.has_selector?('#feature-bullets')
+    page.within('#feature-bullets') do 
+      page_hash[:feature_bullets] = []
+      page.all('li').each do |bullet|
+        page_hash[:feature_bullets].push(bullet.text)
+      end
     end
-  end
+  # end
 
   # product description
-  page.within('#productDescription') do
-    page_hash[:product_description] = page.find('p').text
-  end
+  # if page.has_selector?('#productDescription')
+    page.within('#productDescription') do
+      page_hash[:product_description] = page.find('p').text
+    end
+  # end
 
   # things like weight and dimensions
-  page.has_selector?('#productDetails_techSpec_section_1') ?
+  # page.has_selector?('#productDetails_techSpec_section_1') ?
     page.within('#productDetails_techSpec_section_1') do 
       page.within('tbody') do
         page_hash[:product_details] = {
@@ -100,8 +120,9 @@ CABINET_PAGE_LINKS.each_with_index do |link, ind|
           page_hash[:product_details][:data].push(td.text)
         end
       end
-    end :
-  nil
+    end 
+    # :
+  # nil
  
   # pp page_hash
   cabinets_hash[CABINET_MEMBERS[ind].tr(' ', '_')] = page_hash
